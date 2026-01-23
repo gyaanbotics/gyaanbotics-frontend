@@ -36,10 +36,6 @@
       <a href="index.html" class="text-gray-300 hover:text-blue-400">
         Home
       </a>
-
-      <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">
-        Admin Login
-      </a>
     </div>
 
   </div>
@@ -70,25 +66,33 @@
     <!-- Contact Form -->
     <div class="bg-[#111c33] p-8 rounded-xl border border-white/10">
 
-      <form>
+      <form id="contactForm">
+
         <input
+          id="name"
           type="text"
           placeholder="Your Name"
+          required
           class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
 
         <input
+          id="email"
           type="email"
           placeholder="Email Address"
+          required
           class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
 
         <input
+          id="organization"
           type="text"
           placeholder="School / Organization Name"
           class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
 
         <textarea
+          id="message"
           rows="4"
           placeholder="How can we help you?"
+          required
           class="w-full p-3 mb-6 bg-black rounded border border-gray-700 focus:outline-none"></textarea>
 
         <button
@@ -96,6 +100,9 @@
           class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition">
           Submit Enquiry
         </button>
+
+        <p id="formStatus" class="text-sm mt-4 hidden"></p>
+
       </form>
 
     </div>
@@ -106,6 +113,50 @@
 <footer class="bg-black py-6 text-center text-gray-400">
   © 2026 GyaanBotics OPC Private Limited
 </footer>
+
+<!-- ================= FORM SCRIPT ================= -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const status = document.getElementById("formStatus");
+  status.classList.remove("hidden");
+  status.textContent = "Submitting...";
+  status.className = "text-sm mt-4 text-gray-400";
+
+  try {
+    const res = await fetch(
+      "https://gyaanbotics-backend.onrender.com/api/enquiry",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message:
+            document.getElementById("message").value +
+            " | Organization: " +
+            document.getElementById("organization").value
+        })
+      }
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      status.textContent = "✅ Enquiry submitted successfully!";
+      status.className = "text-sm mt-4 text-green-400";
+      document.getElementById("contactForm").reset();
+    } else {
+      throw new Error(data.message);
+    }
+
+  } catch (err) {
+    status.textContent = "❌ Failed to submit enquiry. Please try again.";
+    status.className = "text-sm mt-4 text-red-400";
+  }
+});
+</script>
 
 </body>
 </html>
