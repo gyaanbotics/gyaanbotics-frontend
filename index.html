@@ -1,236 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GyaanBotics | Robotics, AI & IoT Education Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
-  <meta name="description" content="GyaanBotics provides Robotics, AI, IoT and 3D Design education programs, labs and kits for schools and institutions across India.">
-  <meta name="keywords" content="Robotics lab, AI education, IoT training, 3D design, STEM education">
-  <meta name="author" content="GyaanBotics Private Limited">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+<meta charset="UTF-8">
+<title>GyaanBotics | Robotics, AI & IoT Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-[#0b1220] text-white">
 
-<!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
-      <span class="text-2xl font-bold text-blue-500">GyaanBotics</span>
+<!-- NAVBAR -->
+<nav class="fixed w-full bg-[#0b1220]/90 backdrop-blur border-b border-gray-800 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+    <div class="flex gap-3 items-center">
+      <img src="logo.png" class="h-10">
+      <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
     </div>
-
-    <ul class="hidden md:flex gap-8 text-gray-300 font-medium">
-      <li><a href="#about" class="hover:text-blue-400">About</a></li>
-      <li><a href="#program" class="hover:text-blue-400">Programs</a></li>
-      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-    </ul>
-
-    <a href="#contact"
-       class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold">
-      Enquire Now
-    </a>
+    <a href="#contact" class="bg-blue-600 px-5 py-2 rounded-lg">Enquire</a>
   </div>
 </nav>
 
-<!-- ================= HERO + OFFERINGS ================= -->
-<section class="pt-36 pb-32 relative overflow-hidden">
+<!-- HERO + OFFERINGS -->
+<section class="pt-36 pb-28">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h1 class="text-5xl font-bold mb-6">
+      Building <span class="text-blue-400">Future Innovators</span>
+    </h1>
+    <p class="text-xl text-gray-300 mb-16">
+      Robotics, AI, IoT & 3D Design education for schools
+    </p>
 
-  <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40"></div>
-
-  <div class="relative max-w-7xl mx-auto px-6">
-
-    <!-- HERO TEXT -->
-    <div class="text-center mb-20" data-aos="fade-up">
-      <h1 class="text-5xl font-bold mb-6">
-        Building <span class="text-blue-500">Future Innovators</span>
-      </h1>
-      <p class="max-w-3xl mx-auto text-xl text-gray-300">
-        End-to-end Robotics, AI, IoT & 3D Design education solutions
-        for schools and institutions.
-      </p>
-    </div>
-
-    <!-- OFFERINGS INSIDE HERO -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <!-- AI & ML -->
-      <div class="backdrop-blur-xl bg-white/10 p-6 rounded-2xl border border-white/10
-                  hover:-translate-y-2 transition" data-aos="fade-up">
-        <h3 class="text-lg font-semibold mb-2">AI & ML Labs</h3>
-        <p class="text-gray-300">
-          Practical Artificial Intelligence and Machine Learning labs
-          with real-world use cases.
-        </p>
+    <div class="grid md:grid-cols-4 gap-6">
+      <!-- CARD -->
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 hover:-translate-y-2 transition">
+        <div class="mb-3">
+          <svg class="w-8 h-8" fill="none" stroke="#60a5fa" stroke-width="1.5"
+               viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold">AI & ML Labs</h3>
+        <p class="text-gray-300 text-sm">Hands-on AI learning</p>
       </div>
 
-      <!-- Robotics -->
-      <div class="backdrop-blur-xl bg-white/10 p-6 rounded-2xl border border-white/10
-                  hover:-translate-y-2 transition" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="text-lg font-semibold mb-2">Robotics Kits</h3>
-        <p class="text-gray-300">
-          Hands-on robotics kits covering electronics, sensors,
-          mechanics, and programming.
-        </p>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 hover:-translate-y-2 transition">
+        <h3 class="font-semibold">Robotics Kits</h3>
+        <p class="text-gray-300 text-sm">Sensors & coding</p>
       </div>
 
-      <!-- 3D Design -->
-      <div class="backdrop-blur-xl bg-white/10 p-6 rounded-2xl border border-white/10
-                  hover:-translate-y-2 transition" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-lg font-semibold mb-2">3D Design</h3>
-        <p class="text-gray-300">
-          CAD-based 3D modeling and prototyping for creative
-          problem solving.
-        </p>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 hover:-translate-y-2 transition">
+        <h3 class="font-semibold">3D Design</h3>
+        <p class="text-gray-300 text-sm">CAD & prototyping</p>
       </div>
 
-      <!-- IoT -->
-      <div class="backdrop-blur-xl bg-white/10 p-6 rounded-2xl border border-white/10
-                  hover:-translate-y-2 transition" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="text-lg font-semibold mb-2">IoT Solutions</h3>
-        <p class="text-gray-300">
-          Smart devices, automation systems, and connected
-          learning environments.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section id="about" class="py-28 px-6">
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-    <div data-aos="fade-right">
-      <h2 class="text-4xl font-bold mb-6">
-        Creating Centers of Excellence Across India
-      </h2>
-      <p class="text-gray-300 mb-6">
-        GyaanBotics partners with schools and institutions to build
-        future-ready technology ecosystems aligned with NEP 2020.
-      </p>
-      <p class="text-gray-300">
-        From infrastructure and curriculum to faculty and mentorship,
-        we deliver complete education solutions.
-      </p>
-    </div>
-
-    <div class="backdrop-blur-xl bg-white/10 border border-white/10 rounded-2xl p-8 space-y-6"
-         data-aos="fade-left">
-      <div>
-        <h4 class="font-semibold">Mission</h4>
-        <p class="text-gray-300">Democratize access to advanced technology education.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold">Vision</h4>
-        <p class="text-gray-300">India’s most trusted EdTech partner.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold">Impact</h4>
-        <p class="text-gray-300">Transforming institutions through innovation.</p>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 hover:-translate-y-2 transition">
+        <h3 class="font-semibold">IoT Solutions</h3>
+        <p class="text-gray-300 text-sm">Smart devices</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= OFFERINGS SECTION (3 PILLARS) ================= -->
-<section id="program" class="py-28 px-6 bg-[#111c33]">
-  <div class="max-w-7xl mx-auto">
-
-    <div class="text-center mb-20" data-aos="fade-up">
-      <h2 class="text-4xl font-bold mb-6">
-        Comprehensive Robotics Education Program
-      </h2>
-      <p class="text-gray-300 max-w-4xl mx-auto">
-        A three-pillar approach delivering complete solutions
-        from infrastructure to expert faculty.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-3 gap-10">
-
-      <div class="bg-[#1b2a41] rounded-2xl p-6 hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-4">Robotics Lab Setup</h3>
-        <p class="text-gray-300">
-          State-of-the-art robotics laboratories with complete
-          infrastructure and safety standards.
-        </p>
-      </div>
-
-      <div class="bg-[#1b2a41] rounded-2xl p-6 hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-4">
-          Robotics Kits & Progressive Curriculum
-        </h3>
-        <p class="text-gray-300">
-          Age-appropriate, structured learning paths with
-          hands-on robotics kits.
-        </p>
-      </div>
-
-      <div class="bg-[#1b2a41] rounded-2xl p-6 hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-4">
-          Qualified & Full-time Faculty
-        </h3>
-        <p class="text-gray-300">
-          Dedicated STEM-certified educators exclusively
-          focused on robotics education.
-        </p>
-      </div>
-
-    </div>
+<!-- PROGRAM -->
+<section class="py-24 bg-[#111c33] text-center">
+  <h2 class="text-4xl font-bold mb-10">Comprehensive Robotics Program</h2>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
+    <div class="bg-[#1b2a41] p-6 rounded-xl">Lab Setup</div>
+    <div class="bg-[#1b2a41] p-6 rounded-xl">Curriculum</div>
+    <div class="bg-[#1b2a41] p-6 rounded-xl">Faculty</div>
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="py-20 px-6 text-center">
-  <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-
-  <form id="contactForm" class="max-w-xl mx-auto bg-[#111c33] p-6 rounded-xl">
-    <input id="name" placeholder="Your Name" class="w-full p-3 mb-3 rounded bg-black" required>
-    <input id="email" placeholder="Email" class="w-full p-3 mb-3 rounded bg-black" required>
-    <textarea id="message" placeholder="Message" class="w-full p-3 mb-4 rounded bg-black"></textarea>
-    <button class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-      Submit Enquiry
-    </button>
+<!-- CONTACT -->
+<section id="contact" class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+  <form class="max-w-xl mx-auto bg-[#111c33] p-6 rounded-xl">
+    <input class="w-full p-3 mb-3 bg-black rounded" placeholder="Name">
+    <input class="w-full p-3 mb-3 bg-black rounded" placeholder="Email">
+    <textarea class="w-full p-3 bg-black rounded" placeholder="Message"></textarea>
   </form>
 </section>
 
 <footer class="bg-black py-6 text-center text-gray-400">
-  © 2026 GyaanBotics Private Limited
+  © 2026 GyaanBotics
 </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 900, once: true });
-
-  const API = "https://gyaanbotics-backend.onrender.com";
-  document.getElementById("contactForm").addEventListener("submit", async e => {
-    e.preventDefault();
-    await fetch(`${API}/enquiry`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        message: message.value
-      })
-    });
-    alert("Thank you! We will contact you shortly.");
-    e.target.reset();
-  });
-</script>
 
 </body>
 </html>
