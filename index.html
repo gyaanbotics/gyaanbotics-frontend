@@ -69,7 +69,6 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Brand -->
     <div class="flex items-center gap-3">
       <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
       <span class="text-2xl font-bold">
@@ -77,13 +76,11 @@
       </span>
     </div>
 
-    <!-- Menu -->
     <div class="hidden md:flex gap-8 text-gray-300 font-medium">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#offerings" class="hover:text-blue-400">Offerings</a>
     </div>
 
-    <!-- CTA -->
     <div class="flex items-center gap-4">
       <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">
         Admin Login
@@ -97,70 +94,67 @@
   </div>
 </nav>
 
-<!-- ================= HERO + OFFERINGS INTRO (SIDE BY SIDE) ================= -->
-<section class="pt-40 pb-28">
+<!-- ================= HERO + OFFERINGS (BALANCED LEFT / RIGHT) ================= -->
+<section class="pt-40 pb-28" id="offerings">
   <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
-    <!-- LEFT -->
+    <!-- LEFT SIDE -->
     <div class="reveal">
       <h1 class="text-5xl font-bold mb-6">
         Building <span class="text-blue-400">Future Innovators</span>
       </h1>
-      <p class="text-xl text-gray-300 max-w-xl">
+
+      <p class="text-xl text-gray-300 mb-10 max-w-xl">
         End-to-end Robotics, AI, IoT & 3D Design education solutions
         for schools and institutions across India.
       </p>
-    </div>
 
-    <!-- RIGHT -->
-    <div class="reveal">
-      <h2 class="text-4xl font-bold mb-6">Our Offerings</h2>
+      <h2 class="text-4xl font-bold mb-4">Our Offerings</h2>
+
       <p class="text-gray-300 text-lg max-w-xl">
         Complete STEM education solutions covering infrastructure,
         curriculum, faculty and long-term institutional support.
       </p>
     </div>
 
+    <!-- RIGHT SIDE (2x2 CARDS) -->
+    <div class="grid sm:grid-cols-2 gap-6 reveal">
+
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 glow-card">
+        <h3 class="font-semibold mb-2">AI & ML Labs</h3>
+        <p class="text-gray-300 text-sm">
+          Practical artificial intelligence and machine learning education.
+        </p>
+      </div>
+
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 glow-card">
+        <h3 class="font-semibold mb-2">Robotics Kits</h3>
+        <p class="text-gray-300 text-sm">
+          Hands-on robotics using electronics, sensors and coding.
+        </p>
+      </div>
+
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 glow-card">
+        <h3 class="font-semibold mb-2">3D Design</h3>
+        <p class="text-gray-300 text-sm">
+          CAD modelling, design thinking and prototyping.
+        </p>
+      </div>
+
+      <div class="bg-white/10 p-6 rounded-xl border border-white/10 glow-card">
+        <h3 class="font-semibold mb-2">IoT Solutions</h3>
+        <p class="text-gray-300 text-sm">
+          Smart systems and connected technology solutions.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- ================= OFFERINGS ================= -->
-<section id="offerings" class="pb-28">
-
-  <!-- Offering cards -->
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-28">
-
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">AI & ML Labs</h3>
-      <p class="text-gray-300 text-sm">
-        Practical artificial intelligence and machine learning education.
-      </p>
-    </div>
-
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">Robotics Kits</h3>
-      <p class="text-gray-300 text-sm">
-        Hands-on robotics using electronics, sensors and coding.
-      </p>
-    </div>
-
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">3D Design</h3>
-      <p class="text-gray-300 text-sm">
-        CAD modelling, design thinking and prototyping.
-      </p>
-    </div>
-
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">IoT Solutions</h3>
-      <p class="text-gray-300 text-sm">
-        Smart systems and connected technology solutions.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- ================= PROGRAM INSIDE OFFERINGS ================= -->
+<!-- ================= PROGRAM (INSIDE OFFERINGS FLOW) ================= -->
+<section class="pb-28">
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-16 reveal">
