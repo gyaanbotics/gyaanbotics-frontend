@@ -29,6 +29,14 @@
       <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
     </div>
 
+    <!-- Menu -->
+    <div class="hidden md:flex items-center gap-8 text-gray-300 font-medium">
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#offerings" class="hover:text-blue-400">Offerings</a>
+      <a href="#program" class="hover:text-blue-400">Program</a>
+      <a href="#contact" class="hover:text-blue-400">Contact</a>
+    </div>
+
     <!-- Right Buttons -->
     <div class="flex items-center gap-4">
       <a href="login.html"
@@ -46,7 +54,7 @@
 </nav>
 
 <!-- ================= HERO + OFFERINGS ================= -->
-<section class="pt-36 pb-32 relative">
+<section id="offerings" class="pt-36 pb-32 relative">
   <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-purple-900/40"></div>
 
   <div class="relative max-w-7xl mx-auto px-6 text-center">
@@ -135,45 +143,28 @@
   </div>
 </section>
 
-<!-- ================= PROGRAM SECTION ================= -->
-<section class="py-28 bg-[#111c33]">
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-28 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-6">About GyaanBotics</h2>
+    <p class="text-gray-300">
+      GyaanBotics is an EdTech startup focused on Robotics, AI, IoT and 3D Design,
+      delivering NEP 2020 aligned future-ready education solutions.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PROGRAM ================= -->
+<section id="program" class="py-28 bg-[#111c33]">
   <div class="max-w-7xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-6">
       Comprehensive Robotics Education Program
     </h2>
-    <p class="text-gray-300 max-w-4xl mx-auto mb-20">
-      A three-pillar approach delivering complete robotics education
-      from infrastructure to expert faculty.
-    </p>
 
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <div class="bg-[#1b2a41] p-6 rounded-xl hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-3">Robotics Lab Setup</h3>
-        <p class="text-gray-300">
-          Design and deployment of modern robotics laboratories
-          with safety and industry standards.
-        </p>
-      </div>
-
-      <div class="bg-[#1b2a41] p-6 rounded-xl hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-3">
-          Robotics Kits & Curriculum
-        </h3>
-        <p class="text-gray-300">
-          Age-wise structured curriculum supported by hands-on kits.
-        </p>
-      </div>
-
-      <div class="bg-[#1b2a41] p-6 rounded-xl hover:-translate-y-2 transition">
-        <h3 class="text-xl font-semibold mb-3">
-          Qualified Faculty
-        </h3>
-        <p class="text-gray-300">
-          Dedicated STEM-certified educators for continuous mentoring.
-        </p>
-      </div>
-
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <div class="bg-[#1b2a41] p-6 rounded-xl">Robotics Lab Setup</div>
+      <div class="bg-[#1b2a41] p-6 rounded-xl">Curriculum & Kits</div>
+      <div class="bg-[#1b2a41] p-6 rounded-xl">Qualified Faculty</div>
     </div>
   </div>
 </section>
