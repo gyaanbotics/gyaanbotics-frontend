@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard | GyaanBotics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard | GyaanBotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body style="background:#0b1220;color:white;padding:40px;font-family:sans-serif">
+<body class="bg-[#0b1220] text-white min-h-screen">
 
-<h2>Enquiries Dashboard</h2>
+<!-- ================= TOP BAR ================= -->
+<div class="flex justify-between items-center px-6 py-4 border-b border-gray-700 bg-[#0b1220] sticky top-0 z-50">
+  <h1 class="text-2xl font-bold text-blue-400">GyaanBotics Admin</h1>
 
-<button onclick="logout()" style="margin-bottom:20px;padding:8px 16px;">
-  Logout
-</button>
+  <button onclick="logout()"
+    class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
+    Logout
+  </button>
+</div>
 
-<table border="1" cellpadding="10" cellspacing="0"
-       style="width:100%;background:#111c33;border-color:#1e293b">
-  <thead>
+<!-- ================= CONTROLS ================= -->
+<div class="max-w-7xl mx-auto px-6 py-6 grid md:grid-cols-3 gap-4">
+
+  <!-- Search -->
+  <input
+    id="searchInput"
+    type="text"
+    placeholder="Search by name, email or organization"
+    class="w-full p-3 rounded bg-black border border-gray-700 focus:outline-none"
+    oninput="renderTable()"
+  />
+
+  <!-- Filter -->
+  <select
+    id="statusFilter"
+    class="p-3 rounded bg-black border border-gray-700"
+    onchange="renderTable()"
+  >
+    <option value="all">All Enquiries</option>
+    <option value="new">New</option>
+    <option value="contacted">Contacted</option>
+  </select>
+
+  <!-- Export -->
+  <button
+    onclick="exportCSV()"
+    class="bg-green-600 hover:bg-green-700 rounded px-4 py-3 font-semibold">
+    Export to Excel
+  </button>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="max-w-7xl mx-auto px-6 pb-10 overflow-x-auto">
+
+<table class="w-full border border-gray-700 rounded-lg overflow-hidden">
+  <thead class="bg-[#111c33] text-sm">
     <tr>
-      <th>Name</th>
-      <th>School</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Message</th>
-      <th>Date</th>
+      <th class="p-3">Name</th>
+      <th class="p-3">Organization</th>
+      <th class="p-3">Email</th>
+      <th class="p-3">Message</th>
+      <th class="p-3">Date</th>
+      <th class="p-3">Status</th>
+      <th class="p-3">Action</th>
     </tr>
   </thead>
-  <tbody id="table"></tbody>
+
+  <tbody id="tableBody" class="text-sm bg-[#0b1220]"></tbody>
 </table>
 
+</div>
+
 <script>
+/* ================= CONFIG ================= */
 const API = "https://gyaanbotics-backend.onrender.com";
-const token = localStorage.getItem("admin_token"); // ✅ FIXED
+const token = localStorage.getItem("admin_token");
 
 if (!token) {
   window.location.href = "/login.html";
 }
 
+/* ================= STATE ================= */
+let enquiries = [];
+
+/* ================= FETCH DATA ================= */
 fetch(`${API}/admin/enquiries`, {
   headers: {
-    Authorization: "Bearer " + token // ✅ FIXED
+    Authorization: "Bearer " + token
   }
 })
 .then(res => {
@@ -50,27 +100,88 @@ fetch(`${API}/admin/enquiries`, {
   return res.json();
 })
 .then(data => {
-  const table = document.getElementById("table");
-  table.innerHTML = "";
+  enquiries = data.map(e => ({ ...e, status: e.status || "new" }));
+  renderTable();
+})
+.catch(() => alert("Failed to load enquiries"));
 
-  data.forEach(e => {
-    table.innerHTML += `
-      <tr>
-        <td>${e.name}</td>
-        <td>${e.organization || "-"}</td>
-        <td>${e.email}</td>
-        <td>${e.phone || "-"}</td>
-        <td>${e.message || "-"}</td>
-        <td>${new Date(e.createdAt).toLocaleString()}</td>
+/* ================= RENDER TABLE ================= */
+function renderTable() {
+  const tbody = document.getElementById("tableBody");
+  tbody.innerHTML = "";
+
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const filter = document.getElementById("statusFilter").value;
+
+  const filtered = enquiries.filter(e => {
+    const matchSearch =
+      e.name.toLowerCase().includes(search) ||
+      e.email.toLowerCase().includes(search) ||
+      (e.organization || "").toLowerCase().includes(search);
+
+    const matchStatus =
+      filter === "all" || e.status === filter;
+
+    return matchSearch && matchStatus;
+  });
+
+  filtered.forEach(e => {
+    tbody.innerHTML += `
+      <tr class="border-b border-gray-800 hover:bg-[#111c33] transition">
+        <td class="p-3">${e.name}</td>
+        <td class="p-3">${e.organization || "-"}</td>
+        <td class="p-3">${e.email}</td>
+        <td class="p-3">${e.message || "-"}</td>
+        <td class="p-3">${new Date(e.createdAt).toLocaleString()}</td>
+        <td class="p-3">
+          <span class="px-2 py-1 rounded text-xs ${
+            e.status === "contacted" ? "bg-green-600" : "bg-yellow-600"
+          }">
+            ${e.status}
+          </span>
+        </td>
+        <td class="p-3">
+          ${
+            e.status === "new"
+              ? `<button
+                   onclick="markContacted('${e._id}')"
+                   class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-xs">
+                   Mark Contacted
+                 </button>`
+              : "-"
+          }
+        </td>
       </tr>
     `;
   });
-})
-.catch(err => {
-  console.error(err);
-  alert("Failed to load enquiries");
-});
+}
 
+/* ================= MARK CONTACTED ================= */
+function markContacted(id) {
+  enquiries = enquiries.map(e =>
+    e._id === id ? { ...e, status: "contacted" } : e
+  );
+  renderTable();
+}
+
+/* ================= EXPORT CSV ================= */
+function exportCSV() {
+  let csv = "Name,Organization,Email,Message,Date,Status\n";
+
+  enquiries.forEach(e => {
+    csv += `"${e.name}","${e.organization || ""}","${e.email}","${e.message || ""}","${new Date(e.createdAt).toLocaleString()}","${e.status}"\n`;
+  });
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = window.URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "gyaanbotics-enquiries.csv";
+  a.click();
+}
+
+/* ================= LOGOUT ================= */
 function logout() {
   localStorage.removeItem("admin_token");
   window.location.href = "/login.html";
