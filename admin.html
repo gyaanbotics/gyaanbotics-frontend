@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Admin Dashboard</h1>
-<p id="msg"></p>
-<button onclick="logout()">Logout</button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | GyaanBotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0b1220] text-white p-10">
+
+<h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
+<p id="msg" class="text-gray-300 mb-6"></p>
+
+<button onclick="logout()"
+        class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
+  Logout
+</button>
 
 <script>
 const token = localStorage.getItem("admin_token");
-if (!token) location.href = "login.html";
+if (!token) window.location.href = "login.html";
 
 fetch("https://gyaanbotics-backend.onrender.com/admin/dashboard", {
   headers: { Authorization: "Bearer " + token }
@@ -18,8 +30,9 @@ fetch("https://gyaanbotics-backend.onrender.com/admin/dashboard", {
 
 function logout() {
   localStorage.removeItem("admin_token");
-  location.href = "login.html";
+  window.location.href = "login.html";
 }
 </script>
+
 </body>
 </html>
