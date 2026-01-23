@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h2>Admin Login</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login | GyaanBotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<input id="email" placeholder="Email"><br><br>
-<input id="password" type="password" placeholder="Password"><br><br>
-<button onclick="login()">Login</button>
+<body class="bg-[#0b1220] text-white flex items-center justify-center h-screen">
+
+<div class="bg-[#111c33] p-8 rounded-xl w-80">
+  <h2 class="text-xl font-bold mb-6 text-center">Admin Login</h2>
+
+  <input id="email" placeholder="Email"
+         class="w-full p-3 mb-3 rounded bg-black border border-gray-700">
+
+  <input id="password" type="password" placeholder="Password"
+         class="w-full p-3 mb-5 rounded bg-black border border-gray-700">
+
+  <button onclick="login()"
+          class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded font-semibold">
+    Login
+  </button>
+</div>
 
 <script>
 async function login() {
@@ -19,11 +36,12 @@ async function login() {
   });
 
   const data = await res.json();
-  if (!res.ok) return alert("Login failed");
+  if (!res.ok) return alert("Invalid credentials");
 
   localStorage.setItem("admin_token", data.token);
   window.location.href = "admin.html";
 }
 </script>
+
 </body>
 </html>
