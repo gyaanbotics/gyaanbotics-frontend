@@ -4,97 +4,72 @@
   <meta charset="UTF-8">
   <title>Get in Touch | GyaanBotics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="description" content="Contact GyaanBotics for Robotics, AI, IoT and STEM education solutions.">
-
-  <link rel="icon" href="/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-[#0b1220] text-white">
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <img src="logo.png" class="h-10" alt="GyaanBotics">
-      <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
-    </div>
-    <a href="index.html" class="text-gray-300 hover:text-blue-400">Home</a>
-  </div>
-</nav>
+<section class="pt-32 px-6 max-w-2xl mx-auto">
 
-<!-- CONTACT -->
-<section class="pt-40 pb-24 px-6">
-  <div class="max-w-3xl mx-auto">
+  <h1 class="text-4xl font-bold mb-6">Get in Touch</h1>
 
-    <h1 class="text-4xl font-bold mb-6">Get in Touch</h1>
+  <form id="contactForm" class="bg-[#111c33] p-8 rounded-xl">
 
-    <form id="contactForm" class="bg-[#111c33] p-8 rounded-xl border border-white/10">
+    <input id="name" required
+      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
+      placeholder="Your Name">
 
-      <input id="name" required
-        class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-        placeholder="Your Name">
+    <input id="email" type="email" required
+      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
+      placeholder="Email Address">
 
-      <input id="email" type="email" required
-        class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-        placeholder="Email Address">
+    <input id="organization"
+      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
+      placeholder="School / Organization">
 
-      <input id="organization"
-        class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-        placeholder="School / Organization">
+    <textarea id="message" required rows="4"
+      class="w-full p-3 mb-6 bg-black rounded border border-gray-700"
+      placeholder="How can we help you?"></textarea>
 
-      <textarea id="message" required rows="4"
-        class="w-full p-3 mb-6 bg-black rounded border border-gray-700"
-        placeholder="How can we help you?"></textarea>
+    <button type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold">
+      Submit Enquiry
+    </button>
 
-      <button type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold">
-        Submit Enquiry
-      </button>
-
-      <!-- IMPORTANT: this element MUST exist -->
-      <p id="formStatus" class="mt-4 text-sm"></p>
-
-    </form>
-  </div>
+    <p id="formStatus" class="mt-4 text-sm"></p>
+  </form>
 </section>
 
-<footer class="bg-black py-6 text-center text-gray-400">
-  © 2026 GyaanBotics OPC Private Limited
-</footer>
-
-<!-- SCRIPT AT BOTTOM (SAFE) -->
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
-  if (!form) return;
+  const status = document.getElementById("formStatus");
 
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const status = document.getElementById("formStatus");
+    const payload = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      organization: document.getElementById("organization").value,
+      message: document.getElementById("message").value
+    };
+
     status.textContent = "Submitting...";
     status.className = "mt-4 text-sm text-gray-400";
 
     try {
-      const response = await fetch(
+      const res = await fetch(
         "https://gyaanbotics-backend.onrender.com/contact/enquiry",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            organization: document.getElementById("organization").value,
-            message: document.getElementById("message").value
-          })
+          body: JSON.stringify(payload)
         }
       );
 
-      const data = await response.json();
-
-      if (!response.ok) throw new Error(data.message);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
 
       status.textContent = "✅ Enquiry submitted successfully!";
       status.className = "mt-4 text-sm text-green-400";
@@ -102,11 +77,11 @@
 
     } catch (err) {
       console.error(err);
-      status.textContent = "❌ Failed to submit enquiry.";
+      status.textContent = "❌ Failed to submit enquiry";
       status.className = "mt-4 text-sm text-red-400";
     }
   });
-})();
+});
 </script>
 
 </body>
