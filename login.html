@@ -2,21 +2,26 @@
 <html>
 <head>
   <title>Admin Login | GyaanBotics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-[#0b1220] flex items-center justify-center h-screen text-white">
 
 <form id="loginForm" class="bg-[#111c33] p-8 rounded-xl w-96">
-  <h2 class="text-2xl font-bold mb-6">Admin Login</h2>
+  <h2 class="text-2xl font-bold mb-6 text-center">Admin Login</h2>
 
-  <input id="email" type="email" placeholder="Email"
+  <input id="email" type="email" required placeholder="Email"
     class="w-full p-3 mb-4 bg-black rounded border border-gray-700">
 
-  <input id="password" type="password" placeholder="Password"
+  <input id="password" type="password" required placeholder="Password"
     class="w-full p-3 mb-4 bg-black rounded border border-gray-700">
 
-  <button class="w-full bg-blue-600 py-3 rounded">Login</button>
+  <button type="submit"
+    class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded font-semibold">
+    Login
+  </button>
 </form>
 
 <script>
@@ -25,6 +30,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+
+  console.log("LOGIN ATTEMPT:", email, password);
 
   try {
     const res = await fetch(
@@ -37,13 +44,19 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     );
 
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
+    console.log("RESPONSE:", data);
+
+    if (!res.ok) {
+      alert(data.message || "Invalid credentials");
+      return;
+    }
 
     localStorage.setItem("admin_token", data.token);
     window.location.href = "admin-dashboard.html";
 
   } catch (err) {
-    alert("Invalid credentials");
+    console.error(err);
+    alert("Login failed");
   }
 });
 </script>
