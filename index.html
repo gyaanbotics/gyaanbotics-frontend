@@ -1,174 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ================= BASIC SEO ================= -->
+  <!-- ================= SEO ================= -->
   <meta charset="UTF-8">
-  <title>GyaanBotics | Robotics, AI & IoT Education for Schools</title>
+  <title>GyaanBotics | Robotics, AI & IoT Education Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="description"
-        content="GyaanBotics provides Robotics, Artificial Intelligence and IoT education programs for schools with hands-on learning, labs and kits.">
+        content="GyaanBotics provides structured Robotics, AI and IoT education programs, labs and kits for schools and institutions.">
   <meta name="keywords"
-        content="Robotics education, AI education, IoT training, STEM labs, school robotics program">
+        content="Robotics lab for schools, AI education, IoT training, STEM education, robotics kits">
   <meta name="author" content="GyaanBotics Private Limited">
 
-  <!-- Open Graph (Social Sharing) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="GyaanBotics | Robotics, AI & IoT Education">
-  <meta property="og:description" content="Empowering students with future-ready skills through Robotics, AI and IoT.">
+  <meta property="og:description" content="Future-ready education through Robotics, AI & IoT">
   <meta property="og:type" content="website">
   <meta property="og:image" content="logo.png">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Smooth scroll -->
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     html { scroll-behavior: smooth; }
   </style>
-
-  <!-- AOS (Animate on Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="bg-[#0b1220] text-white">
 
-<!-- ================= TOP NAVIGATION ================= -->
+<!-- ================= NAVBAR ================= -->
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-    <!-- LOGO -->
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="GyaanBotics Logo" class="h-10">
+      <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
       <span class="text-2xl font-bold text-blue-500">GyaanBotics</span>
     </div>
 
-    <!-- DESKTOP MENU -->
     <ul class="hidden md:flex gap-8 text-gray-300 font-medium">
-      <li><a href="#about" class="hover:text-blue-400">About</a></li>
+      <li><a href="#solutions" class="hover:text-blue-400">Solutions</a></li>
       <li><a href="#programs" class="hover:text-blue-400">Programs</a></li>
-      <li><a href="#features" class="hover:text-blue-400">Why Us</a></li>
+      <li><a href="#labs" class="hover:text-blue-400">Labs</a></li>
+      <li><a href="#whyus" class="hover:text-blue-400">Why Us</a></li>
       <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
     </ul>
 
-    <!-- CTA -->
     <a href="#contact"
        class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold">
-      Get Started
+      Enquire Now
     </a>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-  </div>
-
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 border-t border-gray-800">
-    <a href="#about" class="block py-2">About</a>
-    <a href="#programs" class="block py-2">Programs</a>
-    <a href="#features" class="block py-2">Why Us</a>
-    <a href="#contact" class="block py-2">Contact</a>
   </div>
 </nav>
 
 <!-- ================= HERO ================= -->
-<section class="pt-36 pb-28 text-center px-6"
-         data-aos="fade-up">
-  <h1 class="text-5xl font-bold mb-4">
-    Empowering <span class="text-blue-500">Future Innovators</span>
+<section class="pt-36 pb-28 text-center px-6" data-aos="fade-up">
+  <h1 class="text-5xl font-bold mb-6">
+    Building <span class="text-blue-500">Future Innovators</span><br>
+    Through Robotics, AI & IoT
   </h1>
-  <p class="text-xl text-gray-300 mb-8">
-    Robotics, Artificial Intelligence & IoT education for schools
+
+  <p class="max-w-3xl mx-auto text-xl text-gray-300 mb-10">
+    GyaanBotics partners with schools and institutions to deliver
+    structured, hands-on and future-ready technology education
+    aligned with NEP 2020.
   </p>
+
   <a href="#contact"
      class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg text-lg font-semibold">
-    Partner With Us
+    Partner With GyaanBotics
   </a>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="py-20 bg-[#111c33] px-6"
-         data-aos="fade-up">
-  <h2 class="text-3xl font-bold text-center mb-6">About GyaanBotics</h2>
-  <p class="max-w-3xl mx-auto text-center text-lg text-gray-300">
-    GyaanBotics is an education-focused technology startup delivering
-    hands-on Robotics, AI and IoT learning programs aligned with NEP 2020.
-    We help students learn by building, experimenting, and innovating.
-  </p>
-</section>
-
-<!-- ================= PROGRAMS ================= -->
-<section id="programs" class="py-20 px-6">
-  <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">
-    Our Programs
+<!-- ================= SOLUTIONS ================= -->
+<section id="solutions" class="py-20 bg-[#111c33] px-6">
+  <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    Our Education Solutions
   </h2>
 
-  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
-    <div class="bg-[#111c33] p-6 rounded-lg"
-         data-aos="fade-up" data-aos-delay="100">
-      <h3 class="text-xl font-semibold mb-2">Robotics Training</h3>
+    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700"
+         data-aos="fade-up">
+      <h3 class="text-xl font-semibold mb-3">School Robotics Programs</h3>
       <p class="text-gray-300">
-        Hands-on robotics kits, sensors, and real-world challenges.
+        End-to-end robotics education programs integrated with school
+        curriculum for Grades 3–10.
       </p>
     </div>
 
-    <div class="bg-[#111c33] p-6 rounded-lg"
-         data-aos="fade-up" data-aos-delay="200">
-      <h3 class="text-xl font-semibold mb-2">AI & Machine Learning</h3>
+    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700"
+         data-aos="fade-up" data-aos-delay="150">
+      <h3 class="text-xl font-semibold mb-3">AI & Emerging Tech</h3>
       <p class="text-gray-300">
-        Age-appropriate AI concepts with practical demos and projects.
+        Conceptual and practical introduction to Artificial Intelligence,
+        Machine Learning and real-world applications.
       </p>
     </div>
 
-    <div class="bg-[#111c33] p-6 rounded-lg"
+    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700"
          data-aos="fade-up" data-aos-delay="300">
-      <h3 class="text-xl font-semibold mb-2">IoT & Automation</h3>
+      <h3 class="text-xl font-semibold mb-3">IoT & Automation</h3>
       <p class="text-gray-300">
-        Build smart devices and understand connected systems.
+        Learn smart devices, sensors and automation using industry-standard tools.
       </p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= FEATURES ================= -->
-<section id="features" class="py-20 bg-[#111c33] px-6">
-  <h2 class="text-3xl font-bold text-center mb-10"
-      data-aos="fade-up">
-    Why Choose Us
+<!-- ================= PROGRAMS ================= -->
+<section id="programs" class="py-20 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    Structured Learning Programs
   </h2>
 
-  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
+  <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
 
-    <div data-aos="zoom-in">
-      <h4 class="text-xl font-semibold mb-2">Project-Based Learning</h4>
-      <p class="text-gray-300">Students learn by building real projects.</p>
+    <div class="bg-[#111c33] p-8 rounded-xl" data-aos="fade-right">
+      <h3 class="text-2xl font-semibold mb-4">Foundation Level</h3>
+      <ul class="list-disc ml-5 text-gray-300 space-y-2">
+        <li>Basic electronics & sensors</li>
+        <li>Block-based coding</li>
+        <li>Simple robotics projects</li>
+      </ul>
     </div>
 
-    <div data-aos="zoom-in" data-aos-delay="150">
-      <h4 class="text-xl font-semibold mb-2">Industry-Relevant Skills</h4>
-      <p class="text-gray-300">Future-ready curriculum and tools.</p>
+    <div class="bg-[#111c33] p-8 rounded-xl" data-aos="fade-left">
+      <h3 class="text-2xl font-semibold mb-4">Advanced Level</h3>
+      <ul class="list-disc ml-5 text-gray-300 space-y-2">
+        <li>Microcontrollers & IoT</li>
+        <li>AI concepts & applications</li>
+        <li>Real-world problem solving</li>
+      </ul>
     </div>
 
-    <div data-aos="zoom-in" data-aos-delay="300">
-      <h4 class="text-xl font-semibold mb-2">School Integration</h4>
-      <p class="text-gray-300">Flexible programs for schools & institutes.</p>
+  </div>
+</section>
+
+<!-- ================= LABS ================= -->
+<section id="labs" class="py-20 bg-[#111c33] px-6">
+  <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    Robotics & STEM Labs
+  </h2>
+
+  <div class="max-w-5xl mx-auto bg-[#0b1220] p-8 rounded-xl border border-gray-700"
+       data-aos="zoom-in">
+    <p class="text-gray-300 text-lg text-center">
+      We design and set up complete Robotics & STEM labs including
+      hardware kits, curriculum, teacher training and ongoing support
+      for schools and institutions.
+    </p>
+  </div>
+</section>
+
+<!-- ================= WHY US ================= -->
+<section id="whyus" class="py-20 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+    Why GyaanBotics
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto text-center">
+
+    <div class="bg-[#111c33] p-6 rounded-xl" data-aos="zoom-in">
+      <h4 class="text-xl font-semibold mb-2">NEP 2020 Aligned</h4>
+      <p class="text-gray-300">
+        Curriculum designed as per national education guidelines.
+      </p>
+    </div>
+
+    <div class="bg-[#111c33] p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="150">
+      <h4 class="text-xl font-semibold mb-2">Hands-On Learning</h4>
+      <p class="text-gray-300">
+        Students learn by building and experimenting.
+      </p>
+    </div>
+
+    <div class="bg-[#111c33] p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
+      <h4 class="text-xl font-semibold mb-2">End-to-End Support</h4>
+      <p class="text-gray-300">
+        From setup to training to maintenance.
+      </p>
     </div>
 
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="py-20 px-6 text-center"
-         data-aos="fade-up">
-  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+<section id="contact" class="py-20 px-6 text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
 
   <form id="contactForm"
-        class="max-w-xl mx-auto bg-[#111c33] p-6 rounded-lg">
+        class="max-w-xl mx-auto bg-[#111c33] p-6 rounded-xl">
 
     <input id="name" placeholder="Your Name" required
            class="w-full p-3 mb-3 rounded bg-black">
 
-    <input id="school" placeholder="School / Organization"
+    <input id="school" placeholder="School / Institution"
            class="w-full p-3 mb-3 rounded bg-black">
 
     <input id="email" type="email" placeholder="Email" required
@@ -182,12 +211,11 @@
 
     <button type="submit"
             class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">
-      Send Enquiry
+      Submit Enquiry
     </button>
   </form>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer class="bg-black py-6 text-center text-gray-400">
   © 2026 GyaanBotics Private Limited. All rights reserved.
 </footer>
@@ -197,18 +225,10 @@
 <script>
   AOS.init({ duration: 900, once: true });
 
-  // Mobile menu
-  const btn = document.getElementById("menuBtn");
-  const menu = document.getElementById("mobileMenu");
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-
-  // Contact form
-  const API_BASE = "https://gyaanbotics-backend.onrender.com";
+  const API = "https://gyaanbotics-backend.onrender.com";
   document.getElementById("contactForm").addEventListener("submit", async e => {
     e.preventDefault();
-    const res = await fetch(`${API_BASE}/enquiry`, {
+    const res = await fetch(`${API}/enquiry`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -224,7 +244,7 @@
       alert("Thank you! We will contact you shortly.");
       e.target.reset();
     } else {
-      alert("Something went wrong. Please try again.");
+      alert("Something went wrong.");
     }
   });
 </script>
