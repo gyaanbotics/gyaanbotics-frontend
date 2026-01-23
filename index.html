@@ -7,7 +7,6 @@
 
   <!-- SEO -->
   <meta name="description" content="GyaanBotics provides Robotics, AI, IoT and 3D Design education solutions for schools and institutions.">
-  <meta name="keywords" content="Robotics Lab, AI Education, IoT Training, 3D Design, STEM Education">
 
   <!-- SEO Schema -->
   <script type="application/ld+json">
@@ -16,111 +15,106 @@
     "@type": "EducationalOrganization",
     "name": "GyaanBotics Private Limited",
     "url": "https://gyaanbotics.pages.dev",
-    "logo": "https://gyaanbotics.pages.dev/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
-    }
+    "logo": "https://gyaanbotics.pages.dev/logo.png"
   }
   </script>
 
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico">
-
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     html { scroll-behavior: smooth; }
 
+    body { background: #0B1220; }
+
+    /* Hero subtle gradient */
+    .hero-bg {
+      background:
+        radial-gradient(circle at top,
+          rgba(59,130,246,0.18),
+          rgba(11,18,32,0.9) 55%);
+    }
+
+    /* Section separator */
+    .section-sep {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+      transform: translateY(32px);
+      transition: all 0.7s ease;
     }
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* Reduced glow */
     .glow-card {
       position: relative;
-      transition: all 0.35s ease;
+      transition: all 0.3s ease;
     }
     .glow-card::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 16px;
-      background: linear-gradient(120deg, #3b82f6, #9333ea, #22c55e);
+      background: linear-gradient(120deg, #3B82F6, #9333EA, #22C55E);
       opacity: 0;
-      filter: blur(25px);
+      filter: blur(35px);
       z-index: -1;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.3s ease;
     }
-    .glow-card:hover::before { opacity: 0.35; }
-    .glow-card:hover { transform: translateY(-8px) scale(1.01); }
+    .glow-card:hover::before { opacity: 0.18; }
+    .glow-card:hover { transform: translateY(-6px); }
   </style>
 </head>
 
-<body class="bg-[#0b1220] text-white">
+<body class="text-[#CBD5E1]">
 
 <!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#0B1220]/90 backdrop-blur border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
     <div class="flex items-center gap-3">
-      <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
+      <img src="logo.png" class="h-10" alt="Logo">
       <span class="text-2xl font-bold">
         <span class="text-white">Gyaan</span><span class="text-blue-400">Botics</span>
       </span>
     </div>
 
     <div class="flex items-center gap-6">
-
-  <!-- Hidden on mobile, visible on md+ -->
-  <a href="#about"
-     class="hidden md:inline-block text-gray-300 hover:text-blue-400 font-medium">
-    About
-  </a>
-
-  <a href="#offerings"
-     class="hidden md:inline-block text-gray-300 hover:text-blue-400 font-medium">
-    Our Offerings
-  </a>
-
-  <!-- Always visible -->
-  <a href="contact.html"
-     class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold">
-    Enquire Now
-  </a>
-
-</div>
-
+      <a href="#about" class="hidden md:inline text-[#CBD5E1] hover:text-blue-400">About</a>
+      <a href="#offerings" class="hidden md:inline text-[#CBD5E1] hover:text-blue-400">Our Offerings</a>
+      <a href="contact.html" class="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-lg font-semibold text-white">
+        Enquire Now
+      </a>
+    </div>
 
   </div>
 </nav>
 
-<!-- ================= HERO + OFFERINGS (BALANCED LEFT / RIGHT) ================= -->
 <!-- ================= HERO ================= -->
-<section class="pt-40 pb-28 text-center reveal">
+<section class="hero-bg pt-40 pb-28 text-center reveal">
   <h1 class="text-5xl font-bold mb-6">
-  <span class="text-blue-400">Building</span>
-  <span class="text-white">Future</span>
-  <span class="text-blue-400">Innovators</span>
-</h1>
-  <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+    <span class="text-blue-400">Building</span>
+    <span class="text-white">Future</span>
+    <span class="text-blue-400">Innovators</span>
+  </h1>
+  <p class="text-xl max-w-3xl mx-auto text-[#CBD5E1]">
     End-to-end Robotics, AI, IoT & 3D Design education solutions
     for schools and institutions across India.
   </p>
 </section>
 
 <!-- ================= OFFERINGS ================= -->
-<section id="offerings" class="pb-28">
+<section id="offerings" class="pb-28 section-sep">
 
   <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal">
     <h2 class="text-4xl font-bold mb-6 text-[#FDFFE2]">Our Offerings</h2>
-    <p class="text-gray-300 text-lg max-w-4xl mx-auto">
+    <p class="text-lg max-w-4xl mx-auto">
       Complete STEM education solutions covering infrastructure,
       curriculum, faculty and long-term institutional support.
     </p>
@@ -128,125 +122,62 @@
 
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
 
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">AI & ML Labs</h3>
-      <p class="text-gray-300 text-sm">
-        Practical artificial intelligence and machine learning education.
-      </p>
+    <div class="bg-[#111C33] p-6 rounded-xl border border-white/10 glow-card reveal">
+      <h3 class="font-semibold mb-2 text-[#FDFFE2]">AI & ML Labs</h3>
+      <p class="text-sm">Practical artificial intelligence and machine learning education.</p>
     </div>
 
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">Robotics Kits</h3>
-      <p class="text-gray-300 text-sm">
-        Hands-on robotics using electronics, sensors and coding.
-      </p>
+    <div class="bg-[#111C33] p-6 rounded-xl border border-white/10 glow-card reveal">
+      <h3 class="font-semibold mb-2 text-[#FDFFE2]">Robotics Kits</h3>
+      <p class="text-sm">Hands-on robotics using electronics, sensors and coding.</p>
     </div>
 
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">3D Design</h3>
-      <p class="text-gray-300 text-sm">
-        CAD modelling, design thinking and prototyping.
-      </p>
+    <div class="bg-[#111C33] p-6 rounded-xl border border-white/10 glow-card reveal">
+      <h3 class="font-semibold mb-2 text-[#FDFFE2]">3D Design</h3>
+      <p class="text-sm">CAD modelling, design thinking and prototyping.</p>
     </div>
 
-    <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
-      <h3 class="font-semibold mb-2">IoT Solutions</h3>
-      <p class="text-gray-300 text-sm">
-        Smart systems and connected technology solutions.
-      </p>
+    <div class="bg-[#111C33] p-6 rounded-xl border border-white/10 glow-card reveal">
+      <h3 class="font-semibold mb-2 text-[#FDFFE2]">IoT Solutions</h3>
+      <p class="text-sm">Smart systems and connected technology solutions.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= PROGRAM (INSIDE OFFERINGS FLOW) ================= -->
-<section class="pb-28">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <div class="text-center mb-16 reveal">
-      <h3 class="text-3xl font-bold mb-4 text-[#FDFFE2]">
-  Comprehensive Robotics Education Program
-</h3>
-      <p class="text-gray-300 max-w-4xl mx-auto">
-        A structured three-pillar delivery model ensuring long-term
-        impact, quality and scalability.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-3 gap-8">
-
-      <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
-        <div class="bg-gradient-to-r from-blue-600 to-blue-500 p-6">
-          <h4 class="text-xl font-semibold">Robotics Lab Setup</h4>
-        </div>
-        <div class="p-6 text-gray-300 text-sm">
-          <ul class="list-disc list-inside space-y-2">
-            <li>Educational & industrial robotics platforms</li>
-            <li>Electronics, mechanical & prototyping tools</li>
-            <li>Simulation software & IDEs</li>
-            <li>Safe lab layouts & operating standards</li>
-            <li>Scalable infrastructure</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
-        <div class="bg-gradient-to-r from-purple-600 to-purple-500 p-6">
-          <h4 class="text-xl font-semibold">Curriculum & Robotics Kits</h4>
-        </div>
-        <div class="p-6 text-gray-300 text-sm">
-          <ul class="list-disc list-inside space-y-2">
-            <li>NEP 2020 aligned curriculum</li>
-            <li>Project-based learning</li>
-            <li>AI, IoT & coding integration</li>
-            <li>Assessments & tracking</li>
-            <li>Custom modules</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
-        <div class="bg-gradient-to-r from-green-600 to-green-500 p-6">
-          <h4 class="text-xl font-semibold">Qualified Faculty</h4>
-        </div>
-        <div class="p-6 text-gray-300 text-sm">
-          <ul class="list-disc list-inside space-y-2">
-            <li>Dedicated full-time faculty</li>
-            <li>Continuous upskilling</li>
-            <li>Student mentoring</li>
-            <li>Industry exposure</li>
-            <li>Ongoing support</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section id="about" class="py-32 px-6 bg-[#111c33] reveal">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-8 text-[#FDFFE2]">About GyaanBotics</h2>
-    <p class="text-gray-300 text-lg leading-relaxed">
-      GyaanBotics Private Limited is an education-focused technology startup
-      dedicated to transforming how students learn Robotics, AI, IoT and
-      emerging technologies. We partner with institutions to build
-      future-ready learning ecosystems aligned with NEP 2020.
+<!-- ================= PROGRAM ================= -->
+<section class="pb-28 section-sep">
+  <div class="max-w-7xl mx-auto px-6 text-center mb-16 reveal">
+    <h3 class="text-3xl font-bold mb-4 text-[#FDFFE2]">
+      Comprehensive Robotics Education Program
+    </h3>
+    <p class="max-w-4xl mx-auto">
+      A structured three-pillar delivery model ensuring long-term
+      impact, quality and scalability.
     </p>
   </div>
 </section>
 
-<footer class="bg-black py-6 text-center text-gray-400">
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-32 px-6 bg-[#111C33] section-sep reveal">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8 text-[#FDFFE2]">About GyaanBotics</h2>
+    <p class="text-lg leading-relaxed">
+      GyaanBotics Private Limited is an education-focused technology startup
+      dedicated to transforming how students learn Robotics, AI, IoT and
+      emerging technologies, aligned with NEP 2020.
+    </p>
+  </div>
+</section>
+
+<footer class="bg-[#0B1220] py-6 text-center text-sm text-[#CBD5E1] border-t border-white/5">
   © 2026 GyaanBotics Private Limited
 </footer>
 
 <script>
   const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("active");
-    });
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("active"));
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
 </script>
