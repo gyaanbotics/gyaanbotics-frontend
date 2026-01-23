@@ -23,24 +23,39 @@
 </table>
 
 <script>
-const API_BASE = "https://gyaanbotics-backend.onrender.com";
+const API = "https://gyaanbotics-backend.onrender.com";
+const token = localStorage.getItem("token");
 
-fetch(`${API_BASE}/admin/enquiries`)
-  .then(res => res.json())
-  .then(data => {
-    const t = document.getElementById("table");
-    data.forEach(e => {
-      t.innerHTML += `
-        <tr>
-          <td>${e.name}</td>
-          <td>${e.school || "-"}</td>
-          <td>${e.email}</td>
-          <td>${e.phone || "-"}</td>
-          <td>${e.message || "-"}</td>
-          <td>${new Date(e.createdAt).toLocaleString()}</td>
-        </tr>`;
-    });
+if (!token) {
+  window.location.href = "admin-login.html";
+}
+
+fetch(`${API}/admin/enquiries`, {
+  headers: {
+    Authorization: token
+  }
+})
+.then(res => {
+  if (res.status === 401) {
+    localStorage.removeItem("token");
+    window.location.href = "admin-login.html";
+  }
+  return res.json();
+})
+.then(data => {
+  const table = document.getElementById("table");
+  data.forEach(e => {
+    table.innerHTML += `
+      <tr>
+        <td>${e.name}</td>
+        <td>${e.school || "-"}</td>
+        <td>${e.email}</td>
+        <td>${e.phone || "-"}</td>
+        <td>${e.message || "-"}</td>
+        <td>${new Date(e.createdAt).toLocaleString()}</td>
+      </tr>`;
   });
+});
 </script>
 
 </body>
