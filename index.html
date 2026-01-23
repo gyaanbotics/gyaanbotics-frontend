@@ -33,7 +33,7 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Scroll reveal */
+    /* Scroll reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -44,7 +44,7 @@
       transform: translateY(0);
     }
 
-    /* Glow & micro-interactions */
+    /* Glow + micro-interactions */
     .glow-card {
       position: relative;
       transition: all 0.35s ease;
@@ -73,24 +73,26 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+    <!-- Logo -->
     <div class="flex items-center gap-3">
       <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
       <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
     </div>
 
+    <!-- Menu (NO Contact here) -->
     <div class="hidden md:flex gap-8 text-gray-300 font-medium">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#offerings" class="hover:text-blue-400">Offerings</a>
       <a href="#program" class="hover:text-blue-400">Program</a>
-      <a href="contact.html" class="hover:text-blue-400">Contact</a>
     </div>
 
+    <!-- Right -->
     <div class="flex items-center gap-4">
       <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">
         Admin Login
       </a>
       <a href="contact.html"
-         class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold">
+         class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold transition">
         Enquire Now
       </a>
     </div>
@@ -99,13 +101,13 @@
 </nav>
 
 <!-- ================= HERO ================= -->
-<section class="pt-36 pb-24 text-center reveal">
+<section class="pt-40 pb-28 text-center reveal">
   <h1 class="text-5xl font-bold mb-6">
     Building <span class="text-blue-400">Future Innovators</span>
   </h1>
   <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-    Robotics, Artificial Intelligence, IoT & 3D Design education solutions
-    for future-ready schools and institutions.
+    Empowering schools and institutions with future-ready education in
+    Robotics, Artificial Intelligence, IoT and 3D Design.
   </p>
 </section>
 
@@ -116,48 +118,63 @@
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">AI & ML Labs</h3>
       <p class="text-gray-300 text-sm">
-        Practical artificial intelligence and machine learning education.
+        Practical exposure to Artificial Intelligence and Machine Learning concepts
+        through real-world projects.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">Robotics Kits</h3>
       <p class="text-gray-300 text-sm">
-        Hands-on robotics using electronics, sensors and coding.
+        Hands-on robotics learning using electronics, sensors, motors and coding.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">3D Design</h3>
       <p class="text-gray-300 text-sm">
-        CAD modelling, design thinking and prototyping skills.
+        CAD-based 3D modelling, design thinking and rapid prototyping skills.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">IoT Solutions</h3>
       <p class="text-gray-300 text-sm">
-        Smart systems, automation and connected technologies.
+        Smart systems, automation and connected device development.
       </p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="py-28 px-6 reveal">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6">About GyaanBotics</h2>
-    <p class="text-gray-300 text-lg">
-      GyaanBotics is an EdTech startup delivering NEP 2020 aligned
-      Robotics, AI, IoT and 3D Design education to empower the next generation
-      of innovators.
+<!-- ================= ABOUT (FIXED & IMPROVED) ================= -->
+<section id="about" class="py-28 px-6 bg-[#111c33] reveal">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8">About GyaanBotics</h2>
+
+    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+      <strong>GyaanBotics Private Limited</strong> is an education-focused technology
+      startup dedicated to transforming how students learn Robotics, Artificial
+      Intelligence, IoT and 3D Design.
+    </p>
+
+    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+      We work closely with schools and institutions to design
+      <strong>NEP 2020-aligned, hands-on, skill-based learning programs</strong>
+      that build logical thinking, creativity and real-world problem-solving skills.
+    </p>
+
+    <p class="text-gray-300 text-lg leading-relaxed">
+      Our mission is to bridge the gap between traditional education and
+      future industry needs by providing
+      <strong>complete end-to-end STEM solutions</strong> —
+      from lab infrastructure and curriculum to trained faculty and ongoing support.
     </p>
   </div>
 </section>
 
-<!-- ================= PROGRAM (DETAILED & FIXED) ================= -->
-<section id="program" class="py-28 bg-[#111c33]">
+<!-- ================= PROGRAM ================= -->
+<section id="program" class="py-28">
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-20 reveal">
@@ -165,8 +182,8 @@
         Comprehensive Robotics Education Program
       </h2>
       <p class="text-gray-300 max-w-4xl mx-auto text-lg">
-        A complete three-pillar ecosystem covering infrastructure, curriculum
-        and expert faculty for long-term impact.
+        A structured three-pillar ecosystem delivering long-term impact
+        through infrastructure, curriculum and expert faculty.
       </p>
     </div>
 
@@ -177,16 +194,16 @@
         <div class="bg-gradient-to-r from-blue-600 to-blue-500 p-6">
           <h3 class="text-xl font-semibold">Robotics Lab Setup</h3>
           <p class="text-sm text-white/90">
-            Modern, scalable robotics laboratory infrastructure.
+            Design and deployment of modern robotics laboratories.
           </p>
         </div>
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
             <li>Educational & industrial robotics platforms</li>
             <li>Electronics, mechanical & prototyping tools</li>
-            <li>Simulation software and programming IDEs</li>
-            <li>Safe lab layouts and operating procedures</li>
-            <li>Upgradeable infrastructure for future needs</li>
+            <li>Simulation software and IDEs</li>
+            <li>Safe lab layouts and operating standards</li>
+            <li>Scalable infrastructure for future upgrades</li>
           </ul>
         </div>
       </div>
@@ -201,11 +218,11 @@
         </div>
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
-            <li>NEP 2020 aligned structured syllabus</li>
-            <li>Project-based learning methodology</li>
-            <li>Integration of AI, IoT & coding</li>
-            <li>Assessments & performance tracking</li>
-            <li>Customizable content per institution</li>
+            <li>NEP 2020 aligned structured curriculum</li>
+            <li>Project-based learning approach</li>
+            <li>Integration of AI, IoT and coding</li>
+            <li>Assessments and progress tracking</li>
+            <li>Customizable modules per institution</li>
           </ul>
         </div>
       </div>
@@ -221,10 +238,10 @@
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
             <li>Full-time faculty dedicated to robotics</li>
-            <li>Continuous training & upskilling</li>
-            <li>Student mentoring & competition support</li>
+            <li>Continuous training and upskilling</li>
+            <li>Student mentoring and competition support</li>
             <li>Industry exposure and career guidance</li>
-            <li>Consistent academic & technical support</li>
+            <li>Consistent academic and technical support</li>
           </ul>
         </div>
       </div>
