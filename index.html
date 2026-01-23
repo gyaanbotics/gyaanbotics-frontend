@@ -2,118 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GyaanBotics | Robotics, AI & IoT Education</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GyaanBotics — Robotics, AI & IoT Training</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Segoe UI, sans-serif;
-      background: #0b1220;
-      color: white;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #0b1220, #111c33);
-    }
-    header img {
-      height: 80px;
-      margin-bottom: 20px;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    form {
-      background: #111c33;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: auto;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: none;
-    }
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    footer {
-      background: #060b17;
-      text-align: center;
-      padding: 30px;
-      color: #94a3b8;
-    }
+    /* Custom color overrides if needed */
+    .primary-bg { background: #0b1220; }
+    .secondary-bg { background: #111c33; }
+    .primary-text { color: #2563eb; }
   </style>
 </head>
+<body class="primary-bg text-white">
 
-<body>
+  <!-- NAVBAR -->
+  <nav class="w-full p-5 flex justify-between items-center">
+    <div class="text-2xl font-bold primary-text">GyaanBotics</div>
+    <ul class="flex gap-6 text-lg">
+      <li><a href="#about" class="hover:text-blue-400">About</a></li>
+      <li><a href="#programs" class="hover:text-blue-400">Programs</a></li>
+      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+    </ul>
+  </nav>
 
-<header>
-  <img src="logo.png" alt="GyaanBotics Logo">
-  <h1>GyaanBotics</h1>
-  <p>Empowering students with Robotics, AI & IoT education</p>
-</header>
+  <!-- HERO -->
+  <section class="text-center py-20 px-5">
+    <h1 class="text-5xl font-bold mb-4">Empowering Future Innovators</h1>
+    <p class="text-xl mb-8">Hands-on Robotics, AI & IoT Education for Young Minds</p>
+    <a href="#contact" class="bg-blue-600 py-3 px-6 rounded-lg text-white font-semibold hover:bg-blue-700">
+      Get Started
+    </a>
+  </section>
 
-<section>
-  <h2>Contact Us</h2>
+  <!-- ABOUT -->
+  <section id="about" class="py-16 px-5 secondary-bg rounded-xl mx-4 lg:mx-12">
+    <h2 class="text-3xl font-bold text-center mb-6">About GyaanBotics</h2>
+    <p class="max-w-3xl mx-auto text-center text-lg">
+      We are an education technology company focused on Robotics,  
+      Artificial Intelligence, and Internet of Things learning programs  
+      designed for school students to build real skills through projects.
+    </p>
+  </section>
 
-  <form id="contactForm">
-    <input id="name" placeholder="Your Name" required>
-    <input id="school" placeholder="School / Organization">
-    <input id="email" type="email" placeholder="Email" required>
-    <input id="phone" placeholder="Phone">
-    <textarea id="message" placeholder="Message"></textarea>
-    <button type="submit">Send Enquiry</button>
-  </form>
-</section>
+  <!-- PROGRAMS -->
+  <section id="programs" class="py-16 px-5">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Programs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <div class="bg-secondary-bg p-6 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold mb-2">Robotics Training</h3>
+        <p>Hands-on learning with real robotic kits and challenges.</p>
+      </div>
+      <div class="bg-secondary-bg p-6 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold mb-2">AI & Machine Learning</h3>
+        <p>Introductory and advanced AI modules tailored for students.</p>
+      </div>
+      <div class="bg-secondary-bg p-6 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold mb-2">IoT & Automation</h3>
+        <p>Learn how connected devices work and build real IoT projects.</p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  © 2026 GyaanBotics Private Limited
-</footer>
+  <!-- FEATURES -->
+  <section class="py-16 px-5 secondary-bg rounded-xl mx-4 lg:mx-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Why Choose Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center p-4">
+        <h4 class="text-xl font-semibold mb-1">Project Based</h4>
+        <p>Every module includes real projects students build.</p>
+      </div>
+      <div class="text-center p-4">
+        <h4 class="text-xl font-semibold mb-1">Experienced Mentors</h4>
+        <p>Trained educators with industry experience.</p>
+      </div>
+      <div class="text-center p-4">
+        <h4 class="text-xl font-semibold mb-1">School Integration</h4>
+        <p>Programs can be integrated into your curriculum.</p>
+      </div>
+    </div>
+  </section>
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const data = {
-    name: name.value,
-    school: school.value,
-    email: email.value,
-    phone: phone.value,
-    message: message.value
-  };
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 px-5 text-center">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+    <form id="contactForm" class="max-w-xl mx-auto bg-secondary-bg p-6 rounded-lg">
+      <input id="name" placeholder="Your Name" required class="w-full p-3 mb-3 rounded bg-black">
+      <input id="school" placeholder="School / Organization" class="w-full p-3 mb-3 rounded bg-black">
+      <input id="email" type="email" placeholder="Email" required class="w-full p-3 mb-3 rounded bg-black">
+      <input id="phone" placeholder="Phone" class="w-full p-3 mb-3 rounded bg-black">
+      <textarea id="message" placeholder="Message" class="w-full p-3 mb-3 rounded bg-black"></textarea>
 
-  const res = await fetch("https://gyaanbotics-backend.onrender.com
-/enquiry", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
+      <button type="submit" class="bg-blue-600 py-3 px-6 rounded text-white font-semibold hover:bg-blue-700">
+        Send Message
+      </button>
+    </form>
+  </section>
 
-  if (res.ok) {
-    alert("Enquiry sent successfully");
-    e.target.reset();
-  } else {
-    alert("Error sending enquiry");
-  }
-});
-</script>
+  <!-- FOOTER -->
+  <footer class="bg-black py-6 text-center text-sm text-gray-400">
+    © 2026 GyaanBotics | All rights reserved
+  </footer>
+
+  <!-- CONTACT FORM SCRIPT -->
+  <script>
+    const API_BASE = "https://gyaanbotics-backend.onrender.com";
+
+    document.getElementById("contactForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const res = await fetch(`${API_BASE}/enquiry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          school: school.value,
+          email: email.value,
+          phone: phone.value,
+          message: message.value
+        })
+      });
+      if (res.ok) {
+        alert("Thank you! Your message has been sent.");
+        e.target.reset();
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    });
+  </script>
 
 </body>
 </html>
