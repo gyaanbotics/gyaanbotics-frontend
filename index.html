@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GyaanBotics | Robotics, AI & IoT Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Segoe UI, sans-serif;
+      background: #0b1220;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #0b1220, #111c33);
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    form {
+      background: #111c33;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    footer {
+      background: #060b17;
+      text-align: center;
+      padding: 30px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="GyaanBotics Logo">
+  <h1>GyaanBotics</h1>
+  <p>Empowering students with Robotics, AI & IoT education</p>
+</header>
+
+<section>
+  <h2>Contact Us</h2>
+
+  <form id="contactForm">
+    <input id="name" placeholder="Your Name" required>
+    <input id="school" placeholder="School / Organization">
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="phone" placeholder="Phone">
+    <textarea id="message" placeholder="Message"></textarea>
+    <button type="submit">Send Enquiry</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 GyaanBotics Private Limited
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const data = {
+    name: name.value,
+    school: school.value,
+    email: email.value,
+    phone: phone.value,
+    message: message.value
+  };
+
+  const res = await fetch("https://gyaanbotics-backend.onrender.com
+/enquiry", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    alert("Enquiry sent successfully");
+    e.target.reset();
+  } else {
+    alert("Error sending enquiry");
+  }
+});
+</script>
+
+</body>
+</html>

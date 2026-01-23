@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard | GyaanBotics</title>
+</head>
+<body style="background:#0b1220;color:white;padding:40px;font-family:sans-serif">
+
+<h2>Enquiries Dashboard</h2>
+
+<table border="1" cellpadding="10" cellspacing="0"
+       style="width:100%;background:#111c33;border-color:#1e293b">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>School</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody id="table"></tbody>
+</table>
+
+<script>
+const API_BASE = "https://gyaanbotics-backend.onrender.com";
+
+fetch(`${API_BASE}/admin/enquiries`)
+  .then(res => res.json())
+  .then(data => {
+    const t = document.getElementById("table");
+    data.forEach(e => {
+      t.innerHTML += `
+        <tr>
+          <td>${e.name}</td>
+          <td>${e.school || "-"}</td>
+          <td>${e.email}</td>
+          <td>${e.phone || "-"}</td>
+          <td>${e.message || "-"}</td>
+          <td>${new Date(e.createdAt).toLocaleString()}</td>
+        </tr>`;
+    });
+  });
+</script>
+
+</body>
+</html>
