@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Admin Login</h2>
-
-<input id="email" placeholder="Email"><br><br>
-<input id="password" type="password" placeholder="Password"><br><br>
-<button onclick="login()">Login</button>
+<h1>Admin Dashboard</h1>
+<p id="msg"></p>
+<button onclick="logout()">Logout</button>
 
 <script>
-async function login() {
-  const res = await fetch("https://gyaanbotics-backend.onrender.com/admin/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: email.value,
-      password: password.value
-    })
-  });
+const token = localStorage.getItem("admin_token");
+if (!token) location.href = "login.html";
 
-  const data = await res.json();
-  if (!res.ok) return alert("Login failed");
+fetch("https://gyaanbotics-backend.onrender.com/admin/dashboard", {
+  headers: { Authorization: "Bearer " + token }
+})
+.then(res => res.json())
+.then(data => msg.innerText = data.message)
+.catch(() => logout());
 
-  localStorage.setItem("admin_token", data.token);
-  window.location.href = "admin.html";
+function logout() {
+  localStorage.removeItem("admin_token");
+  location.href = "login.html";
 }
 </script>
 </body>
