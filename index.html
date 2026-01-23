@@ -27,13 +27,13 @@
 
     body { background:#0B1220; }
 
-    /* Subtle hero gradient */
-    .hero-bg {
-      background:
-        radial-gradient(circle at top,
-          rgba(59,130,246,0.18),
-          rgba(11,18,32,0.95) 60%);
-    }
+    /* Shared section background for hero + offerings */
+.main-bg {
+  background:
+    radial-gradient(circle at top,
+      rgba(59,130,246,0.18),
+      rgba(11,18,32,0.95) 60%);
+}
 
     /* Section separator */
     .section-sep {
@@ -97,7 +97,7 @@
 </nav>
 
 <!-- ================= HERO ================= -->
-<section class="hero-bg pt-40 pb-28 text-center reveal">
+<section class="main-bg pt-40 pb-28 text-center reveal">
   <h1 class="text-5xl font-bold mb-6">
     <span class="text-blue-400">Building</span>
     <span class="text-white">Future</span>
@@ -110,7 +110,7 @@
 </section>
 
 <!-- ================= OFFERINGS ================= -->
-<section id="offerings" class="pb-28 section-sep">
+<section id="offerings" class="main-bg pb-28 section-sep">
 
   <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal">
     <h2 class="text-4xl font-bold mb-6 text-[#FDFFE2]">Our Offerings</h2>
