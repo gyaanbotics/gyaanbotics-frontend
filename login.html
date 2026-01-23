@@ -1,46 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Admin Login | GyaanBotics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-[#0b1220] text-white flex items-center justify-center h-screen">
+<body class="bg-[#0b1220] flex items-center justify-center h-screen text-white">
 
-<div class="bg-[#111c33] p-8 rounded-xl w-80">
-  <h2 class="text-xl font-bold mb-6 text-center">Admin Login</h2>
+<form id="loginForm" class="bg-[#111c33] p-8 rounded-xl w-96">
+  <h2 class="text-2xl font-bold mb-6">Admin Login</h2>
 
-  <input id="email" placeholder="Email"
-         class="w-full p-3 mb-3 rounded bg-black border border-gray-700">
+  <input id="email" type="email" placeholder="Email"
+    class="w-full p-3 mb-4 bg-black rounded border border-gray-700">
 
   <input id="password" type="password" placeholder="Password"
-         class="w-full p-3 mb-5 rounded bg-black border border-gray-700">
+    class="w-full p-3 mb-4 bg-black rounded border border-gray-700">
 
-  <button onclick="login()"
-          class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded font-semibold">
-    Login
-  </button>
-</div>
+  <button class="w-full bg-blue-600 py-3 rounded">Login</button>
+</form>
 
 <script>
-async function login() {
-  const res = await fetch("https://gyaanbotics-backend.onrender.com/admin/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: email.value,
-      password: password.value
-    })
-  });
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-  const data = await res.json();
-  if (!res.ok) return alert("Invalid credentials");
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  localStorage.setItem("admin_token", data.token);
-  window.location.href = "admin.html";
-}
+  try {
+    const res = await fetch(
+      "https://gyaanbotics-backend.onrender.com/admin/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      }
+    );
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+
+    localStorage.setItem("admin_token", data.token);
+    window.location.href = "admin-dashboard.html";
+
+  } catch (err) {
+    alert("Invalid credentials");
+  }
+});
 </script>
 
 </body>
