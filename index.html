@@ -13,7 +13,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS Animations -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -32,10 +32,10 @@
     </div>
 
     <ul class="hidden md:flex gap-8 text-gray-300">
-      <li><a href="#solutions">Solutions</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#whyus">Why Us</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#solutions" class="hover:text-blue-400">Solutions</a></li>
+      <li><a href="#programs" class="hover:text-blue-400">Programs</a></li>
+      <li><a href="#whyus" class="hover:text-blue-400">Why Us</a></li>
+      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
     </ul>
 
     <a href="#contact"
@@ -62,9 +62,17 @@
   <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
     <!-- CARD -->
-    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700" data-aos="fade-up">
+    <div class="group bg-[#0b1220] p-6 rounded-xl border border-gray-700
+                transition transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+         data-aos="fade-up">
       <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-        🤖
+        <!-- ROBOT SVG -->
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path d="M9 3h6M10 3v3m4-3v3M5 9h14v10a2 2 0 01-2 2H7a2 2 0 01-2-2V9z"/>
+          <circle cx="9" cy="13" r="1"/>
+          <circle cx="15" cy="13" r="1"/>
+        </svg>
       </div>
       <h3 class="text-xl font-semibold mb-2">Robotics Programs</h3>
       <p class="text-gray-300">
@@ -72,80 +80,70 @@
       </p>
     </div>
 
-    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="150">
+    <div class="group bg-[#0b1220] p-6 rounded-xl border border-gray-700
+                transition transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+         data-aos="fade-up" data-aos-delay="150">
       <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-        🧠
+        <!-- BRAIN SVG -->
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path d="M8 5a3 3 0 016 0 3 3 0 013 3v1a3 3 0 010 6v1a3 3 0 01-3 3 3 3 0 01-6 0 3 3 0 01-3-3v-1a3 3 0 010-6V8a3 3 0 013-3z"/>
+        </svg>
       </div>
       <h3 class="text-xl font-semibold mb-2">AI & Emerging Tech</h3>
       <p class="text-gray-300">
-        Artificial Intelligence and ML concepts with real use cases.
+        Artificial Intelligence concepts with real-world applications.
       </p>
     </div>
 
-    <div class="bg-[#0b1220] p-6 rounded-xl border border-gray-700" data-aos="fade-up" data-aos-delay="300">
+    <div class="group bg-[#0b1220] p-6 rounded-xl border border-gray-700
+                transition transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
+         data-aos="fade-up" data-aos-delay="300">
       <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-        🌐
+        <!-- IOT SVG -->
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M2 12h4M18 12h4M12 2v4M12 18v4"/>
+        </svg>
       </div>
       <h3 class="text-xl font-semibold mb-2">IoT & Automation</h3>
       <p class="text-gray-300">
-        Smart devices, sensors, and connected systems training.
+        Smart devices, sensors and automation systems training.
       </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= PROGRAMS ================= -->
-<section id="programs" class="py-20 px-6">
-  <h2 class="text-3xl font-bold text-center mb-12">Learning Programs</h2>
-
-  <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-
-    <div class="bg-[#111c33] p-8 rounded-xl" data-aos="fade-right">
-      <div class="text-4xl mb-4">📘</div>
-      <h3 class="text-2xl font-semibold mb-4">Foundation Level</h3>
-      <ul class="list-disc ml-5 text-gray-300 space-y-2">
-        <li>Basic electronics</li>
-        <li>Block-based coding</li>
-        <li>Entry robotics projects</li>
-      </ul>
-    </div>
-
-    <div class="bg-[#111c33] p-8 rounded-xl" data-aos="fade-left">
-      <div class="text-4xl mb-4">🚀</div>
-      <h3 class="text-2xl font-semibold mb-4">Advanced Level</h3>
-      <ul class="list-disc ml-5 text-gray-300 space-y-2">
-        <li>Microcontrollers & IoT</li>
-        <li>AI applications</li>
-        <li>Real-world problem solving</li>
-      </ul>
     </div>
 
   </div>
 </section>
 
 <!-- ================= WHY US ================= -->
-<section id="whyus" class="py-20 bg-[#111c33] px-6">
+<section id="whyus" class="py-20 px-6">
   <h2 class="text-3xl font-bold text-center mb-12">Why GyaanBotics</h2>
 
   <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto text-center">
 
-    <div class="bg-[#0b1220] p-6 rounded-xl" data-aos="zoom-in">
-      <div class="text-4xl mb-3">🎯</div>
+    <div class="bg-[#111c33] p-6 rounded-xl transition transform hover:-translate-y-2 hover:shadow-xl"
+         data-aos="zoom-in">
       <h4 class="text-xl font-semibold mb-2">NEP 2020 Aligned</h4>
-      <p class="text-gray-300">Designed as per national education policy.</p>
+      <p class="text-gray-300">
+        Curriculum designed as per national education policy.
+      </p>
     </div>
 
-    <div class="bg-[#0b1220] p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="150">
-      <div class="text-4xl mb-3">🛠️</div>
+    <div class="bg-[#111c33] p-6 rounded-xl transition transform hover:-translate-y-2 hover:shadow-xl"
+         data-aos="zoom-in" data-aos-delay="150">
       <h4 class="text-xl font-semibold mb-2">Hands-on Learning</h4>
-      <p class="text-gray-300">Learning by doing, not memorizing.</p>
+      <p class="text-gray-300">
+        Students learn by building real projects.
+      </p>
     </div>
 
-    <div class="bg-[#0b1220] p-6 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
-      <div class="text-4xl mb-3">🤝</div>
+    <div class="bg-[#111c33] p-6 rounded-xl transition transform hover:-translate-y-2 hover:shadow-xl"
+         data-aos="zoom-in" data-aos-delay="300">
       <h4 class="text-xl font-semibold mb-2">End-to-End Support</h4>
-      <p class="text-gray-300">Setup, training and ongoing assistance.</p>
+      <p class="text-gray-300">
+        Complete setup, training and ongoing assistance.
+      </p>
     </div>
 
   </div>
