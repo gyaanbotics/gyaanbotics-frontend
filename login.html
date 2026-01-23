@@ -22,16 +22,19 @@
     class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded font-semibold">
     Login
   </button>
+
+  <p id="status" class="mt-4 text-center text-sm"></p>
 </form>
 
 <script>
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
+  const email = emailInput = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const status = document.getElementById("status");
 
-  console.log("LOGIN ATTEMPT:", email, password);
+  status.textContent = "Logging in...";
 
   try {
     const res = await fetch(
@@ -44,10 +47,9 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     );
 
     const data = await res.json();
-    console.log("RESPONSE:", data);
 
     if (!res.ok) {
-      alert(data.message || "Invalid credentials");
+      status.textContent = data.message;
       return;
     }
 
@@ -55,8 +57,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     window.location.href = "admin-dashboard.html";
 
   } catch (err) {
-    console.error(err);
-    alert("Login failed");
+    status.textContent = "Login failed";
   }
 });
 </script>
