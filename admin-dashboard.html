@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Dashboard | GyaanBotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body style="background:#0b1220;color:white;padding:40px;font-family:sans-serif">
 
 <h2>Enquiries Dashboard</h2>
+
+<button onclick="logout()" style="margin-bottom:20px;padding:8px 16px;">
+  Logout
+</button>
 
 <table border="1" cellpadding="10" cellspacing="0"
        style="width:100%;background:#111c33;border-color:#1e293b">
@@ -24,38 +31,50 @@
 
 <script>
 const API = "https://gyaanbotics-backend.onrender.com";
-const token = localStorage.getItem("token");
+const token = localStorage.getItem("admin_token"); // ✅ FIXED
 
 if (!token) {
-  window.location.href = "admin-login.html";
+  window.location.href = "/login.html";
 }
 
 fetch(`${API}/admin/enquiries`, {
   headers: {
-    Authorization: token
+    Authorization: "Bearer " + token // ✅ FIXED
   }
 })
 .then(res => {
-  if (res.status === 401) {
-    localStorage.removeItem("token");
-    window.location.href = "admin-login.html";
+  if (res.status === 401 || res.status === 403) {
+    localStorage.removeItem("admin_token");
+    window.location.href = "/login.html";
   }
   return res.json();
 })
 .then(data => {
   const table = document.getElementById("table");
+  table.innerHTML = "";
+
   data.forEach(e => {
     table.innerHTML += `
       <tr>
         <td>${e.name}</td>
-        <td>${e.school || "-"}</td>
+        <td>${e.organization || "-"}</td>
         <td>${e.email}</td>
         <td>${e.phone || "-"}</td>
         <td>${e.message || "-"}</td>
         <td>${new Date(e.createdAt).toLocaleString()}</td>
-      </tr>`;
+      </tr>
+    `;
   });
+})
+.catch(err => {
+  console.error(err);
+  alert("Failed to load enquiries");
 });
+
+function logout() {
+  localStorage.removeItem("admin_token");
+  window.location.href = "/login.html";
+}
 </script>
 
 </body>
