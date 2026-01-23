@@ -4,33 +4,194 @@
   <meta charset="UTF-8">
   <title>Admin Dashboard | GyaanBotics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Excel export library -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <style>
+    body { background: #0B1220; }
+  </style>
 </head>
 
-<body class="bg-[#0b1220] text-white p-10">
+<body class="text-[#CBD5E1]">
 
-<h1 class="text-3xl font-bold mb-4">Admin Dashboard</h1>
-<p id="msg" class="text-gray-300 mb-6"></p>
+<!-- ================= TOP BAR ================= -->
+<header class="fixed top-0 left-0 right-0 h-16 bg-[#0B1220] border-b border-white/5 flex items-center justify-between px-6 z-50">
 
-<button onclick="logout()"
-        class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
-  Logout
-</button>
+  <div class="flex items-center gap-3">
+    <span class="text-xl font-bold">
+      <span class="text-white">Gyaan</span><span class="text-blue-400">Botics</span>
+    </span>
+    <span class="text-sm text-gray-400">Admin Panel</span>
+  </div>
 
+  <button onclick="logout()"
+    class="bg-red-500/10 text-red-400 px-4 py-2 rounded-lg hover:bg-red-500/20 transition">
+    Logout
+  </button>
+</header>
+
+<!-- ================= LAYOUT ================= -->
+<div class="flex pt-16 min-h-screen">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="w-64 bg-[#111C33] border-r border-white/5 hidden md:block">
+    <nav class="p-6 space-y-4">
+      <a class="block px-4 py-2 rounded-lg bg-blue-500/10 text-blue-400">
+        Dashboard
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="flex-1 p-6">
+
+    <!-- STATS -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+      <div class="bg-[#111C33] p-5 rounded-xl border border-white/10">
+        <h3 class="text-sm text-gray-400 mb-1">Total Enquiries</h3>
+        <p id="totalCount" class="text-3xl font-bold text-white">0</p>
+      </div>
+
+      <div class="bg-[#111C33] p-5 rounded-xl border border-white/10">
+        <h3 class="text-sm text-gray-400 mb-1">Contacted</h3>
+        <p id="contactedCount" class="text-3xl font-bold text-green-400">0</p>
+      </div>
+
+      <div class="bg-[#111C33] p-5 rounded-xl border border-white/10">
+        <h3 class="text-sm text-gray-400 mb-1">Pending</h3>
+        <p id="pendingCount" class="text-3xl font-bold text-yellow-400">0</p>
+      </div>
+
+      <div class="bg-[#111C33] p-5 rounded-xl border border-white/10">
+        <button onclick="exportExcel()"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold">
+          Export to Excel
+        </button>
+      </div>
+
+    </div>
+
+    <!-- SEARCH -->
+    <div class="mb-4">
+      <input id="searchInput" type="text"
+        placeholder="Search by name, email or message..."
+        class="w-full bg-[#111C33] border border-white/10 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-400">
+    </div>
+
+    <!-- ENQUIRIES TABLE -->
+    <div class="bg-[#111C33] rounded-xl border border-white/10 overflow-hidden">
+
+      <div class="p-5 border-b border-white/5">
+        <h2 class="text-xl font-semibold text-white">Enquiries</h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="bg-[#0B1220] text-gray-400">
+            <tr>
+              <th class="text-left px-4 py-3">Name</th>
+              <th class="text-left px-4 py-3">Email</th>
+              <th class="text-left px-4 py-3">Message</th>
+              <th class="text-left px-4 py-3">Status</th>
+              <th class="text-left px-4 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody id="enquiryTable"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- ================= SCRIPT ================= -->
 <script>
 const token = localStorage.getItem("admin_token");
-if (!token) window.location.href = "login.html";
+if (!token) location.href = "login.html";
 
-fetch("https://gyaanbotics-backend.onrender.com/admin/dashboard", {
+let enquiries = [];
+let contactedMap = JSON.parse(localStorage.getItem("contacted")) || {};
+
+fetch("https://gyaanbotics-backend.onrender.com/admin/enquiries", {
   headers: { Authorization: "Bearer " + token }
 })
 .then(res => res.json())
-.then(data => msg.innerText = data.message)
-.catch(() => logout());
+.then(data => {
+  enquiries = data;
+  renderTable(data);
+  updateStats();
+});
+
+function renderTable(data) {
+  const tbody = document.getElementById("enquiryTable");
+  tbody.innerHTML = data.map(e => {
+    const contacted = contactedMap[e._id];
+    return `
+      <tr class="border-b border-white/5 hover:bg-white/5">
+        <td class="px-4 py-3">${e.name || "-"}</td>
+        <td class="px-4 py-3">${e.email || "-"}</td>
+        <td class="px-4 py-3 max-w-xs truncate">${e.message || "-"}</td>
+        <td class="px-4 py-3">
+          <span class="${contacted ? 'text-green-400' : 'text-yellow-400'}">
+            ${contacted ? 'Contacted' : 'Pending'}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <button onclick="markContacted('${e._id}')"
+            class="text-blue-400 hover:underline text-sm">
+            Mark Contacted
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function markContacted(id) {
+  contactedMap[id] = true;
+  localStorage.setItem("contacted", JSON.stringify(contactedMap));
+  renderTable(enquiries);
+  updateStats();
+}
+
+function updateStats() {
+  const contacted = Object.keys(contactedMap).length;
+  document.getElementById("totalCount").innerText = enquiries.length;
+  document.getElementById("contactedCount").innerText = contacted;
+  document.getElementById("pendingCount").innerText = enquiries.length - contacted;
+}
+
+document.getElementById("searchInput").addEventListener("input", e => {
+  const q = e.target.value.toLowerCase();
+  const filtered = enquiries.filter(x =>
+    (x.name || "").toLowerCase().includes(q) ||
+    (x.email || "").toLowerCase().includes(q) ||
+    (x.message || "").toLowerCase().includes(q)
+  );
+  renderTable(filtered);
+});
+
+function exportExcel() {
+  const data = enquiries.map(e => ({
+    Name: e.name,
+    Email: e.email,
+    Message: e.message,
+    Status: contactedMap[e._id] ? "Contacted" : "Pending"
+  }));
+
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Enquiries");
+  XLSX.writeFile(workbook, "GyaanBotics_Enquiries.xlsx");
+}
 
 function logout() {
   localStorage.removeItem("admin_token");
-  window.location.href = "login.html";
+  location.href = "login.html";
 }
 </script>
 
