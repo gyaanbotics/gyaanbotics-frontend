@@ -4,42 +4,113 @@
   <meta charset="UTF-8">
   <title>Get in Touch | GyaanBotics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <meta name="description" content="Contact GyaanBotics for Robotics, AI, IoT and STEM education solutions.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 
 <body class="bg-[#0b1220] text-white">
 
-<section class="pt-32 px-6 max-w-2xl mx-auto">
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-  <h1 class="text-4xl font-bold mb-6">Get in Touch</h1>
+    <div class="flex items-center gap-3">
+      <img src="logo.png" class="h-10" alt="GyaanBotics">
+      <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
+    </div>
 
-  <form id="contactForm" class="bg-[#111c33] p-8 rounded-xl">
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="text-gray-300 hover:text-blue-400">Home</a>
+      <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">Admin Login</a>
+    </div>
 
-    <input id="name" required
-      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-      placeholder="Your Name">
+  </div>
+</nav>
 
-    <input id="email" type="email" required
-      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-      placeholder="Email Address">
+<!-- ================= CONTACT SECTION ================= -->
+<section class="pt-40 pb-24 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-    <input id="organization"
-      class="w-full p-3 mb-4 bg-black rounded border border-gray-700"
-      placeholder="School / Organization">
+    <!-- Left Content -->
+    <div>
+      <h1 class="text-4xl font-bold mb-6">Get in Touch</h1>
 
-    <textarea id="message" required rows="4"
-      class="w-full p-3 mb-6 bg-black rounded border border-gray-700"
-      placeholder="How can we help you?"></textarea>
+      <p class="text-gray-300 mb-6 text-lg">
+        Interested in Robotics Labs, AI programs, IoT solutions or STEM education?
+        Reach out to us and our team will connect with you.
+      </p>
 
-    <button type="submit"
-      class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold">
-      Submit Enquiry
-    </button>
+      <ul class="text-gray-300 space-y-3">
+        <li>📍 Serving schools & institutions across India</li>
+        <li>📘 NEP 2020 aligned programs</li>
+        <li>🤖 Robotics | AI | IoT | 3D Design</li>
+      </ul>
+    </div>
 
-    <p id="formStatus" class="mt-4 text-sm"></p>
-  </form>
+    <!-- Contact Form -->
+    <div class="bg-[#111c33] p-8 rounded-xl border border-white/10">
+
+      <form id="contactForm">
+
+        <input
+          id="name"
+          type="text"
+          required
+          placeholder="Your Name"
+          class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
+
+        <input
+          id="email"
+          type="email"
+          required
+          placeholder="Email Address"
+          class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
+
+        <input
+          id="organization"
+          type="text"
+          placeholder="School / Organization Name"
+          class="w-full p-3 mb-4 bg-black rounded border border-gray-700 focus:outline-none">
+
+        <textarea
+          id="message"
+          rows="4"
+          required
+          placeholder="How can we help you?"
+          class="w-full p-3 mb-6 bg-black rounded border border-gray-700 focus:outline-none"></textarea>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition">
+          Submit Enquiry
+        </button>
+
+        <!-- Status -->
+        <p id="formStatus" class="mt-4 text-sm"></p>
+
+      </form>
+
+    </div>
+
+  </div>
 </section>
 
+<footer class="bg-black py-6 text-center text-gray-400">
+  © 2026 GyaanBotics OPC Private Limited
+</footer>
+
+<!-- ================= SCRIPT ================= -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
@@ -69,11 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message);
 
-      status.textContent = "✅ Enquiry submitted successfully!";
-      status.className = "mt-4 text-sm text-green-400";
-      form.reset();
+      if (data.success) {
+        status.textContent = "✅ Enquiry submitted successfully!";
+        status.className = "mt-4 text-sm text-green-400";
+        form.reset();
+      } else {
+        throw new Error(data.message);
+      }
 
     } catch (err) {
       console.error(err);
