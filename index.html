@@ -69,17 +69,21 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+    <!-- Brand -->
     <div class="flex items-center gap-3">
       <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
-      <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
+      <span class="text-2xl font-bold">
+        <span class="text-white">Gyaan</span><span class="text-blue-400">Botics</span>
+      </span>
     </div>
 
-    <!-- Program REMOVED from nav -->
+    <!-- Menu -->
     <div class="hidden md:flex gap-8 text-gray-300 font-medium">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#offerings" class="hover:text-blue-400">Offerings</a>
     </div>
 
+    <!-- CTA -->
     <div class="flex items-center gap-4">
       <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">
         Admin Login
@@ -93,31 +97,38 @@
   </div>
 </nav>
 
-<!-- ================= HERO ================= -->
-<section class="pt-40 pb-28 text-center reveal">
-  <h1 class="text-5xl font-bold mb-6">
-    Building <span class="text-blue-400">Future Innovators</span>
-  </h1>
-  <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-    End-to-end Robotics, AI, IoT & 3D Design education solutions
-    for schools and institutions across India.
-  </p>
+<!-- ================= HERO + OFFERINGS INTRO (SIDE BY SIDE) ================= -->
+<section class="pt-40 pb-28">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- LEFT -->
+    <div class="reveal">
+      <h1 class="text-5xl font-bold mb-6">
+        Building <span class="text-blue-400">Future Innovators</span>
+      </h1>
+      <p class="text-xl text-gray-300 max-w-xl">
+        End-to-end Robotics, AI, IoT & 3D Design education solutions
+        for schools and institutions across India.
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="reveal">
+      <h2 class="text-4xl font-bold mb-6">Our Offerings</h2>
+      <p class="text-gray-300 text-lg max-w-xl">
+        Complete STEM education solutions covering infrastructure,
+        curriculum, faculty and long-term institutional support.
+      </p>
+    </div>
+
+  </div>
 </section>
 
-<!-- ================= OFFERINGS (WITH PROGRAM CONTENT) ================= -->
-<section id="offerings" class="py-28">
-
-  <!-- Offerings intro -->
-  <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal">
-    <h2 class="text-4xl font-bold mb-6">Our Offerings</h2>
-    <p class="text-gray-300 text-lg max-w-4xl mx-auto">
-      Complete STEM education solutions covering infrastructure,
-      curriculum, faculty and long-term institutional support.
-    </p>
-  </div>
+<!-- ================= OFFERINGS ================= -->
+<section id="offerings" class="pb-28">
 
   <!-- Offering cards -->
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-28">
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">AI & ML Labs</h3>
@@ -149,7 +160,7 @@
 
   </div>
 
-  <!-- PROGRAM CONTENT MOVED HERE -->
+  <!-- ================= PROGRAM INSIDE OFFERINGS ================= -->
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-16 reveal">
@@ -213,7 +224,7 @@
   </div>
 </section>
 
-<!-- ================= ABOUT (UNCHANGED STRUCTURE) ================= -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="py-32 px-6 bg-[#111c33] reveal">
   <div class="max-w-6xl mx-auto text-center">
     <h2 class="text-4xl font-bold mb-8">About GyaanBotics</h2>
