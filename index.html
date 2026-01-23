@@ -33,7 +33,6 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Scroll reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -44,7 +43,6 @@
       transform: translateY(0);
     }
 
-    /* Glow + micro-interactions */
     .glow-card {
       position: relative;
       transition: all 0.35s ease;
@@ -62,8 +60,6 @@
     }
     .glow-card:hover::before { opacity: 0.35; }
     .glow-card:hover { transform: translateY(-8px) scale(1.01); }
-    .glow-card svg { transition: transform 0.3s ease; }
-    .glow-card:hover svg { transform: scale(1.15); }
   </style>
 </head>
 
@@ -73,26 +69,23 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- Logo -->
     <div class="flex items-center gap-3">
       <img src="logo.png" class="h-10" alt="GyaanBotics Logo">
       <span class="text-2xl font-bold text-blue-400">GyaanBotics</span>
     </div>
 
-    <!-- Menu (NO Contact here) -->
+    <!-- Program REMOVED from nav -->
     <div class="hidden md:flex gap-8 text-gray-300 font-medium">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#offerings" class="hover:text-blue-400">Offerings</a>
-      <a href="#program" class="hover:text-blue-400">Program</a>
     </div>
 
-    <!-- Right -->
     <div class="flex items-center gap-4">
       <a href="login.html" class="text-sm text-gray-300 hover:text-blue-400">
         Admin Login
       </a>
       <a href="contact.html"
-         class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold transition">
+         class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg font-semibold">
         Enquire Now
       </a>
     </div>
@@ -106,237 +99,130 @@
     Building <span class="text-blue-400">Future Innovators</span>
   </h1>
   <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-    Empowering schools and institutions with future-ready education in
-    Robotics, Artificial Intelligence, IoT and 3D Design.
+    End-to-end Robotics, AI, IoT & 3D Design education solutions
+    for schools and institutions across India.
   </p>
 </section>
 
-<!-- ================= OFFERINGS ================= -->
-<section id="offerings" class="pb-28">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
+<!-- ================= OFFERINGS (WITH PROGRAM CONTENT) ================= -->
+<section id="offerings" class="py-28">
+
+  <!-- Offerings intro -->
+  <div class="max-w-7xl mx-auto px-6 text-center mb-20 reveal">
+    <h2 class="text-4xl font-bold mb-6">Our Offerings</h2>
+    <p class="text-gray-300 text-lg max-w-4xl mx-auto">
+      Complete STEM education solutions covering infrastructure,
+      curriculum, faculty and long-term institutional support.
+    </p>
+  </div>
+
+  <!-- Offering cards -->
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-24">
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">AI & ML Labs</h3>
       <p class="text-gray-300 text-sm">
-        Practical exposure to Artificial Intelligence and Machine Learning concepts
-        through real-world projects.
+        Practical artificial intelligence and machine learning education.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">Robotics Kits</h3>
       <p class="text-gray-300 text-sm">
-        Hands-on robotics learning using electronics, sensors, motors and coding.
+        Hands-on robotics using electronics, sensors and coding.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">3D Design</h3>
       <p class="text-gray-300 text-sm">
-        CAD-based 3D modelling, design thinking and rapid prototyping skills.
+        CAD modelling, design thinking and prototyping.
       </p>
     </div>
 
     <div class="bg-white/10 p-6 rounded-xl border border-white/10 reveal glow-card">
       <h3 class="font-semibold mb-2">IoT Solutions</h3>
       <p class="text-gray-300 text-sm">
-        Smart systems, automation and connected device development.
+        Smart systems and connected technology solutions.
       </p>
     </div>
 
   </div>
-</section>
 
-<!-- ================= ABOUT (FIXED & IMPROVED) ================= -->
-<!-- ================= ABOUT (PREMIUM TECHVEIN STYLE) ================= -->
-<section id="about" class="py-32 px-6 relative overflow-hidden bg-[#0b1220]">
-
-  <!-- Background grid / glow -->
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_60%)]"></div>
-  <div class="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,#ffffff10_1px,transparent_1px),linear-gradient(#ffffff10_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-  <div class="relative max-w-7xl mx-auto">
-
-    <!-- Top heading -->
-    <div class="text-center mb-20 reveal">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        About <span class="text-blue-400">GyaanBotics</span>
-      </h2>
-      <p class="text-gray-300 text-lg max-w-4xl mx-auto">
-        Transforming India’s educational landscape through innovative
-        Robotics, Artificial Intelligence, IoT and emerging technology solutions.
-      </p>
-    </div>
-
-    <!-- Content grid -->
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-
-      <!-- LEFT CONTENT -->
-      <div class="reveal">
-        <h3 class="text-3xl font-semibold mb-6">
-          Creating Centers of Excellence Across India
-        </h3>
-
-        <p class="text-gray-300 mb-6 leading-relaxed">
-          <strong>GyaanBotics Private Limited</strong> is an education-focused
-          technology startup at the forefront of STEM innovation.
-          We specialize in Robotics, AI, IoT and 3D Design education,
-          partnering with K-12 schools, universities and institutions.
-        </p>
-
-        <p class="text-gray-300 mb-6 leading-relaxed">
-          Our approach goes beyond conventional training. We design
-          <strong>comprehensive learning ecosystems</strong> that combine
-          modern infrastructure, progressive curriculum and expert faculty
-          to prepare students for real-world technology challenges.
-        </p>
-
-        <p class="text-gray-300 leading-relaxed">
-          By aligning closely with <strong>NEP 2020</strong>, we ensure institutions
-          deliver future-ready education while maintaining academic excellence
-          and industry relevance.
-        </p>
-      </div>
-
-      <!-- RIGHT CARDS -->
-      <div class="space-y-6 reveal">
-
-        <!-- Mission -->
-        <div class="bg-[#111c33] p-6 rounded-2xl border border-white/10 glow-card flex gap-4">
-          <div class="flex-shrink-0 bg-blue-600/20 p-3 rounded-xl">
-            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="1.8"
-              viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-semibold text-lg mb-2">Mission</h4>
-            <p class="text-gray-300 text-sm leading-relaxed">
-              To democratize access to advanced technology education and
-              create centers of excellence in Robotics and AI across India’s
-              educational institutions.
-            </p>
-          </div>
-        </div>
-
-        <!-- Vision -->
-        <div class="bg-[#111c33] p-6 rounded-2xl border border-white/10 glow-card flex gap-4">
-          <div class="flex-shrink-0 bg-purple-600/20 p-3 rounded-xl">
-            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8"
-              viewBox="0 0 24 24">
-              <path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-semibold text-lg mb-2">Vision</h4>
-            <p class="text-gray-300 text-sm leading-relaxed">
-              To be India’s leading EdTech partner, empowering every student
-              with future-ready skills in AI, Robotics and emerging technologies.
-            </p>
-          </div>
-        </div>
-
-        <!-- Impact -->
-        <div class="bg-[#111c33] p-6 rounded-2xl border border-white/10 glow-card flex gap-4">
-          <div class="flex-shrink-0 bg-green-600/20 p-3 rounded-xl">
-            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" stroke-width="1.8"
-              viewBox="0 0 24 24">
-              <path d="M12 2l4 8h-8l4-8z"/>
-              <path d="M4 22h16"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-semibold text-lg mb-2">Impact</h4>
-            <p class="text-gray-300 text-sm leading-relaxed">
-              Transforming education across institutions by integrating
-              cutting-edge technology, trained faculty and industry-aligned
-              learning models.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================= PROGRAM ================= -->
-<section id="program" class="py-28">
+  <!-- PROGRAM CONTENT MOVED HERE -->
   <div class="max-w-7xl mx-auto px-6">
 
-    <div class="text-center mb-20 reveal">
-      <h2 class="text-4xl font-bold mb-6">
+    <div class="text-center mb-16 reveal">
+      <h3 class="text-3xl font-bold mb-4">
         Comprehensive Robotics Education Program
-      </h2>
-      <p class="text-gray-300 max-w-4xl mx-auto text-lg">
-        A structured three-pillar ecosystem delivering long-term impact
-        through infrastructure, curriculum and expert faculty.
+      </h3>
+      <p class="text-gray-300 max-w-4xl mx-auto">
+        A structured three-pillar delivery model ensuring long-term
+        impact, quality and scalability.
       </p>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-8">
 
-      <!-- Pillar 1 -->
       <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
         <div class="bg-gradient-to-r from-blue-600 to-blue-500 p-6">
-          <h3 class="text-xl font-semibold">Robotics Lab Setup</h3>
-          <p class="text-sm text-white/90">
-            Design and deployment of modern robotics laboratories.
-          </p>
+          <h4 class="text-xl font-semibold">Robotics Lab Setup</h4>
         </div>
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
             <li>Educational & industrial robotics platforms</li>
             <li>Electronics, mechanical & prototyping tools</li>
-            <li>Simulation software and IDEs</li>
-            <li>Safe lab layouts and operating standards</li>
-            <li>Scalable infrastructure for future upgrades</li>
+            <li>Simulation software & IDEs</li>
+            <li>Safe lab layouts & operating standards</li>
+            <li>Scalable infrastructure</li>
           </ul>
         </div>
       </div>
 
-      <!-- Pillar 2 -->
       <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
         <div class="bg-gradient-to-r from-purple-600 to-purple-500 p-6">
-          <h3 class="text-xl font-semibold">Curriculum & Robotics Kits</h3>
-          <p class="text-sm text-white/90">
-            Progressive, age-wise learning with hands-on kits.
-          </p>
+          <h4 class="text-xl font-semibold">Curriculum & Robotics Kits</h4>
         </div>
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
-            <li>NEP 2020 aligned structured curriculum</li>
-            <li>Project-based learning approach</li>
-            <li>Integration of AI, IoT and coding</li>
-            <li>Assessments and progress tracking</li>
-            <li>Customizable modules per institution</li>
+            <li>NEP 2020 aligned curriculum</li>
+            <li>Project-based learning</li>
+            <li>AI, IoT & coding integration</li>
+            <li>Assessments & tracking</li>
+            <li>Custom modules</li>
           </ul>
         </div>
       </div>
 
-      <!-- Pillar 3 -->
       <div class="bg-[#14223a] rounded-2xl border border-white/10 overflow-hidden reveal glow-card">
         <div class="bg-gradient-to-r from-green-600 to-green-500 p-6">
-          <h3 class="text-xl font-semibold">Qualified Faculty</h3>
-          <p class="text-sm text-white/90">
-            Dedicated STEM-certified educators and mentors.
-          </p>
+          <h4 class="text-xl font-semibold">Qualified Faculty</h4>
         </div>
         <div class="p-6 text-gray-300 text-sm">
           <ul class="list-disc list-inside space-y-2">
-            <li>Full-time faculty dedicated to robotics</li>
-            <li>Continuous training and upskilling</li>
-            <li>Student mentoring and competition support</li>
-            <li>Industry exposure and career guidance</li>
-            <li>Consistent academic and technical support</li>
+            <li>Dedicated full-time faculty</li>
+            <li>Continuous upskilling</li>
+            <li>Student mentoring</li>
+            <li>Industry exposure</li>
+            <li>Ongoing support</li>
           </ul>
         </div>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT (UNCHANGED STRUCTURE) ================= -->
+<section id="about" class="py-32 px-6 bg-[#111c33] reveal">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8">About GyaanBotics</h2>
+    <p class="text-gray-300 text-lg leading-relaxed">
+      GyaanBotics Private Limited is an education-focused technology startup
+      dedicated to transforming how students learn Robotics, AI, IoT and
+      emerging technologies. We partner with institutions to build
+      future-ready learning ecosystems aligned with NEP 2020.
+    </p>
   </div>
 </section>
 
@@ -344,14 +230,11 @@
   © 2026 GyaanBotics Private Limited
 </footer>
 
-<!-- ================= SCROLL SCRIPT ================= -->
 <script>
   const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      }
+      if (entry.isIntersecting) entry.target.classList.add("active");
     });
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
