@@ -14,7 +14,7 @@
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0B1220]/90 backdrop-blur border-b border-white/5">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-    <!-- LOGO (wrapped with link → homepage) -->
+    <!-- LOGO → Homepage (absolute path to avoid page-to-page shift) -->
     <a href="/" class="flex items-center gap-3">
       <img src="/logo.png" class="h-10" alt="GyaanBotics Logo">
       <span class="text-2xl font-bold">
@@ -23,11 +23,15 @@
     </a>
 
     <div class="flex items-center gap-6">
-      <!-- REMOVED hidden md:inline (now visible on mobile) -->
-      <a href="/#about" class="text-[#CBD5E1] hover:text-blue-400">About</a>
-      <a href="/#offerings" class="text-[#CBD5E1] hover:text-blue-400">Our Offerings</a>
+      <!-- Visible on all screen sizes -->
+      <a href="/#about" class="text-[#CBD5E1] hover:text-blue-400">
+        About
+      </a>
+      <a href="/#offerings" class="text-[#CBD5E1] hover:text-blue-400">
+        Our Offerings
+      </a>
 
-      <!-- FIXED contact link -->
+      <!-- Correct Pages routing -->
       <a href="/contact" class="bg-blue-500 hover:bg-blue-600 px-5 py-2 rounded-lg font-semibold text-white">
         Enquire Now
       </a>
@@ -35,7 +39,8 @@
 
   </div>
 </nav>
-  <!-- Spacer for fixed navbar -->
+
+<!-- Spacer for fixed navbar -->
 <div class="h-20"></div>
 
 
