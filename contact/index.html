@@ -11,9 +11,39 @@
 
 <body class="bg-black text-gray-200">
 
-  <header class="max-w-7xl mx-auto px-6 py-6">
-    <a href="/" class="text-2xl font-bold text-blue-400">GyaanBotics</a>
-  </header>
+  <!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-[#0B1220]/80 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo → Homepage -->
+    <a href="/" class="flex items-center gap-3">
+      <img src="/logo.png" alt="GyaanBotics Logo" class="h-9 w-auto" />
+      <span class="text-xl font-bold">
+        <span class="text-white">Gyaan</span>
+        <span class="text-blue-400">Botics</span>
+      </span>
+    </a>
+
+    <!-- Nav links -->
+    <nav class="hidden md:flex items-center gap-8 text-sm text-[#CBD5E1]">
+      <a href="/#offerings" class="hover:text-blue-400 transition">Offerings</a>
+      <a href="/#about" class="hover:text-blue-400 transition">About</a>
+      <a href="/contact" class="hover:text-blue-400 transition">Contact</a>
+    </nav>
+
+    <!-- CTA -->
+    <a
+      href="/contact"
+      class="bg-blue-500 hover:bg-blue-600 transition px-5 py-2 rounded-lg font-semibold text-white text-sm"
+    >
+      Enquire Now
+    </a>
+
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-20"></div>
 
   <main class="max-w-4xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-bold mb-6">
