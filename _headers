@@ -1,9 +1,9 @@
 /sitemap.xml
   Content-Type: application/xml; charset=UTF-8
   X-Content-Type-Options: nosniff
-  Cache-Control: no-transform
+  Cache-Control: no-transform, no-cache
 
 /robots.txt
   Content-Type: text/plain; charset=UTF-8
   X-Content-Type-Options: nosniff
-  Cache-Control: no-transform
+  Cache-Control: no-transform, no-cache
