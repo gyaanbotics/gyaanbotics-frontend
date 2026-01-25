@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gyaanbotics.pages.dev/sitemap.xml
