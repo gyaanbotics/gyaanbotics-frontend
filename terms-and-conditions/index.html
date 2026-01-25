@@ -8,67 +8,20 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
+  body { background:#0B1220; }
 
-    body { background:#0B1220; }
-
-    /* Shared section background for hero + offerings */
-.main-bg {
-  background:
-    radial-gradient(circle at top,
-      rgba(59,130,246,0.18),
-      rgba(11,18,32,0.95) 60%);
-}
-
-    /* Section separator */
-    .section-sep {
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: all 0.7s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Reduced glow */
-    .glow-card {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .glow-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      background: linear-gradient(120deg,#3B82F6,#9333EA,#22C55E);
-      opacity: 0;
-      filter: blur(36px);
-      z-index: -1;
-      transition: opacity 0.3s ease;
-    }
-    .glow-card:hover::before { opacity: 0.18; }
-    .glow-card:hover { transform: translateY(-6px); }
-  </style>
+  .main-bg {
+    background:
+      radial-gradient(
+        circle at top,
+        rgba(59,130,246,0.18),
+        rgba(11,18,32,0.95) 60%
+      );
+  }
+</style>
 </head>
 
-<body class="bg-black text-gray-200">
-  <section class="main-bg pt-40 pb-28">
-  <div class="max-w-7xl mx-auto px-6">
-    <h1 class="text-4xl font-bold text-[#FDFFE2] mb-6">
-      Privacy Policy
-    </h1>
-    <p class="max-w-3xl text-[#CBD5E1]">
-      Your privacy matters to us.
-    </p>
-  </div>
-</section>
-
+<body class="text-gray-200 overflow-x-hidden main-bg">
 
 <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/90 backdrop-blur border-b border-gray-800">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -103,9 +56,10 @@
 
 
 
-  <section class="bg-[#111C33] section-sep py-24 px-6">
-  <div class="max-w-7xl mx-auto">
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-bold mb-6">
       <span class="text-blue-400">Terms</span> & Conditions
+    </h1>
 
     <p class="mb-6 text-gray-300">
       By accessing this website, you agree to the following terms and conditions.
@@ -126,10 +80,7 @@
     <p class="text-gray-300">
       GyaanBotics is not responsible for losses arising from the use of this website.
     </p>
-    <div class="max-w-4xl mx-auto">
-  </div>
-  </div>
-</section>
+  </main>
   <footer class="bg-[#0B1220] py-10 border-t border-white/5">
   <div class="max-w-7xl mx-auto px-6 text-center text-sm text-[#CBD5E1] space-y-4">
 
