@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gyaanbotics.pages.dev/</loc>
+    <loc>https://gyaanbotics.com/</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://gyaanbotics.pages.dev/privacy-policy</loc>
+    <loc>https://gyaanbotics.com/privacy-policy</loc>
     <priority>0.81</priority>
   </url>
   <url>
-    <loc>https://gyaanbotics.pages.dev/terms-and-conditions</loc>
+    <loc>https://gyaanbotics.com/terms-and-conditions</loc>
     <priority>0.81</priority>
   </url>
   <url>
-    <loc>https://gyaanbotics.pages.dev/contact</loc>
+    <loc>https://gyaanbotics.com/contact</loc>
     <priority>0.81</priority>
   </url>
 </urlset>
