@@ -28,7 +28,7 @@
   <input
     id="searchInput"
     type="text"
-    placeholder="Search by name, email or organization"
+    placeholder="Search by name, email, phone or organization"
     class="w-full p-3 rounded bg-black border border-gray-700 focus:outline-none"
     oninput="renderTable()"
   />
@@ -62,6 +62,7 @@
       <th class="p-3">Name</th>
       <th class="p-3">Organization</th>
       <th class="p-3">Email</th>
+      <th class="p-3">Phone</th>
       <th class="p-3">Message</th>
       <th class="p-3">Date</th>
       <th class="p-3">Status</th>
@@ -166,10 +167,10 @@ function markContacted(id) {
 
 /* ================= EXPORT CSV ================= */
 function exportCSV() {
-  let csv = "Name,Organization,Email,Message,Date,Status\n";
+  let csv = "Name,Organization,Email,Phone,Message,Date,Status\n";
 
   enquiries.forEach(e => {
-    csv += `"${e.name}","${e.organization || ""}","${e.email}","${e.message || ""}","${new Date(e.createdAt).toLocaleString()}","${e.status}"\n`;
+    csv += `"${e.name}","${e.organization || ""}","${e.email}","${e.phone}","${e.message || ""}","${new Date(e.createdAt).toLocaleString()}","${e.status}"\n`;
   });
 
   const blob = new Blob([csv], { type: "text/csv" });
