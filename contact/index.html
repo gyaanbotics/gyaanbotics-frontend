@@ -158,15 +158,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
+  const submitBtn = form.querySelector("button[type='submit']");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // Prevent double submit
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+
     const payload = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      organization: document.getElementById("organization").value,
-      message: document.getElementById("message").value
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      organization: document.getElementById("organization").value.trim(),
+      message: document.getElementById("message").value.trim()
     };
 
     status.textContent = "Submitting...";
@@ -182,6 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
 
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
+      }
+
       const data = await res.json();
 
       if (data.success) {
@@ -189,17 +198,27 @@ document.addEventListener("DOMContentLoaded", () => {
         status.className = "mt-4 text-sm text-green-400";
         form.reset();
       } else {
-        throw new Error(data.message);
+        throw new Error(data.message || "Submission failed");
       }
 
     } catch (err) {
-      console.error(err);
-      status.textContent = "❌ Failed to submit enquiry";
+      console.error("Enquiry submit error:", err);
+      status.textContent = "❌ Failed to submit enquiry. Please try again.";
       status.className = "mt-4 text-sm text-red-400";
+    } finally {
+      // Always restore UI
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit";
+
+      // Optional auto-clear message
+      setTimeout(() => {
+        status.textContent = "";
+      }, 4000);
     }
   });
 });
 </script>
+
 </div>
 </body>
 </html>
