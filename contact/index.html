@@ -119,11 +119,12 @@
           placeholder="How can we help you?"
           class="w-full p-3 mb-6 bg-white text-black rounded border border-gray-700 focus:outline-none"></textarea>
 
-        <button
-          type="submit"
-          class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition">
-          Submit Enquiry
-        </button>
+        <<button
+  id="submitBtn"
+  type="button"
+  class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition">
+  Submit Enquiry
+</button>
 
         <!-- Status -->
         <p id="formStatus" class="mt-4 text-sm"></p>
@@ -158,14 +159,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
-  const submitBtn = form.querySelector("button[type='submit']");
+  const submitBtn = document.getElementById("submitBtn");
 
-  form.addEventListener("submit", async (e) => {
+  submitBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    // Prevent double submit
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
+    status.textContent = "Submitting...";
+    status.className = "mt-4 text-sm text-gray-400";
 
     const payload = {
       name: document.getElementById("name").value.trim(),
@@ -173,9 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
       organization: document.getElementById("organization").value.trim(),
       message: document.getElementById("message").value.trim()
     };
-
-    status.textContent = "Submitting...";
-    status.className = "mt-4 text-sm text-gray-400";
 
     try {
       const res = await fetch(
@@ -187,10 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
 
-      if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
-      }
-
       const data = await res.json();
 
       if (data.success) {
@@ -198,26 +193,21 @@ document.addEventListener("DOMContentLoaded", () => {
         status.className = "mt-4 text-sm text-green-400";
         form.reset();
       } else {
-        throw new Error(data.message || "Submission failed");
+        throw new Error(data.message);
       }
 
     } catch (err) {
-      console.error("Enquiry submit error:", err);
-      status.textContent = "❌ Failed to submit enquiry. Please try again.";
+      console.error(err);
+      status.textContent = "❌ Failed to submit enquiry";
       status.className = "mt-4 text-sm text-red-400";
     } finally {
-      // Always restore UI
       submitBtn.disabled = false;
-      submitBtn.textContent = "Submit";
-
-      // Optional auto-clear message
-      setTimeout(() => {
-        status.textContent = "";
-      }, 4000);
+      submitBtn.textContent = "Submit Enquiry";
     }
   });
 });
 </script>
+
 
 </div>
 </body>
